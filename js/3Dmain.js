@@ -16,15 +16,9 @@ animate();
 function init() {
 
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	camera.position.set( 0, 0, 200 );
+	camera.position.set( 0, 0, 800 );
 
 	controls = new THREE.OrbitControls( camera );
-
-	controls.staticMoving = false;
-	controls.dynamicDampingFactor = 0.3;
-
-	controls.keys = [ 65, 83, 68 ];
-
 	scene = new THREE.Scene();
 
 	var element = document.createElement( 'div' );
@@ -32,13 +26,72 @@ function init() {
 	element.style.height = '100px';
 	element.style.background = new THREE.Color( 0x000000 ).getStyle();
 
-	var object = new THREE.CSS3DObject( element );
+	object = new THREE.CSS3DObject( element );
 	object.position.x = 0;
 	object.position.y = 0;
 	object.position.z = 0;
 	// object.scale.x = Math.random() + 0.5;
 	// object.scale.y = Math.random() + 0.5;
 	scene.add( object );
+
+
+	// var template = document.getElementById('label_template');
+	// distance = template.cloneNode(true);
+	// distance.nameLayer = distance.children[0];
+	// $contenttarget.append( distance );
+
+	var video1 = document.createElement( 'div' );
+	video1.style.width = '1280px';
+	video1.style.height = '720px';
+	video1.style.background = new THREE.Color( 0x000fff ).getStyle();
+
+	var chapter1 = new THREE.CSS3DObject( video1 );
+	chapter1.position.x = 640;
+	chapter1.position.y = 360;
+	chapter1.position.z = -1000;
+
+	scene.add(chapter1);
+
+
+	var video2 = document.createElement( 'div' );
+	video2.style.width = '1280px';
+	video2.style.height = '720px';
+	video2.style.background = new THREE.Color( 0xfff000 ).getStyle();
+
+	var chapter2 = new THREE.CSS3DObject( video2 );
+	chapter2.position.x = 640;
+	chapter2.position.y = -360;
+	chapter2.position.z = -1000;
+
+	scene.add(chapter2);
+
+
+
+	var video3 = document.createElement( 'div' );
+	video3.style.width = '1280px';
+	video3.style.height = '720px';
+	video3.style.background = new THREE.Color( 0x000fff ).getStyle();
+
+	var chapter3 = new THREE.CSS3DObject( video3 );
+	chapter3.position.x = -640;
+	chapter3.position.y = -360;
+	chapter3.position.z = -1000;
+
+	scene.add(chapter3);
+
+
+	var video4 = document.createElement( 'div' );
+	video4.style.width = '1280px';
+	video4.style.height = '720px';
+	video4.style.background = new THREE.Color( 0xfff000 ).getStyle();
+
+	var chapter4 = new THREE.CSS3DObject( video4 );
+	chapter4.position.x = -640;
+	chapter4.position.y = 360;
+	chapter4.position.z = -1000;
+
+	scene.add(chapter4);
+
 
 	renderer = new THREE.CSS3DRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
@@ -62,6 +115,8 @@ function onWindowResize() {
 function animate() {
 
 	requestAnimationFrame( animate );
+
+	TWEEN.update();
 
 	controls.update();
 	render();

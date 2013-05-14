@@ -49,7 +49,7 @@ function camTweener( newCamPosition, newTarget, time ) {
 		} );
 
 	tweenPosition.start();
-	// Tweener( camTarget, newTarget, time );	
+	Tweener( camTarget, newTarget, time );	
 }
 
 
