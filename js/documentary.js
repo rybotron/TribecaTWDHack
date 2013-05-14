@@ -6,7 +6,7 @@ var documentary = {
 		var resourceHandler = domConfig.resourceHandler;
 		for(var chapterIndex = 0; chapterIndex < library.chapters.length; chapterIndex++){
 			var indexedChapter = library.chapters[chapterIndex];
-			if(indexChapter.resources){
+			if(indexedChapter.resources){
 				// Iterate through the resources and hand them to the resource handler.
 				for(var rscIndex = 0; rscIndex < indexedChapter.resources.length; rscIndex++){
 					var indexedRsc = indexedChapter.resources[rscIndex];
@@ -19,7 +19,7 @@ var documentary = {
 	createResouce: function (rscJson){
 		var rscContainer = document.createElement('div');
 		var rscElement;
-		switch(rscJson.elementType){
+		switch(rscJson.type){
 			case 'image':{
 				rscElement = document.createElement('img');
 				rscElement.setAttribute('src', rscJson.source);
@@ -36,7 +36,9 @@ var documentary = {
 				break;
 			}
 		}
-		rscContainer.appendChild(rscElement);
+		if(rscElement){
+			rscContainer.appendChild(rscElement);
+		}
 		return rscContainer;
 	}
 }

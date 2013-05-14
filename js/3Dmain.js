@@ -12,7 +12,15 @@ var controls;
 
 var threeDHandler = {
 	handle: function (htmlElement, resourceJson){
-		
+		htmlElement.setAttribute('width', resourceJson.dimentions[0]);
+		htmlElement.setAttribute('height', resourceJson.dimentions[1]);
+		var threeDObject = new THREE.CSS3DObject( element );
+		threeDObject.position.x = resourceJson.coords[0];
+		threeDObject.position.y = resourceJson.coords[1];
+		threeDObject.position.z = resourceJson.coords[2];
+		// threeDObject.scale.x = Math.random() + 0.5;
+		// threeDObject.scale.y = Math.random() + 0.5;
+		scene.add( threeDObject );
 	}
 };
 
