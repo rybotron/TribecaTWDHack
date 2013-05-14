@@ -18,6 +18,7 @@ var documentary = {
 	},
 	createResouce: function (rscJson){
 		var rscContainer = document.createElement('div');
+		rscContainer.setAttribute('class', 'resource');
 		var rscElement;
 		switch(rscJson.type){
 			case 'image':{

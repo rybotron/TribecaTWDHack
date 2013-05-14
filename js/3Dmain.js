@@ -12,8 +12,8 @@ var controls;
 
 var threeDHandler = {
 	handle: function (htmlElement, resourceJson){
-		htmlElement.setAttribute('width', ''+resourceJson.dimentions[0]+'px');
-		htmlElement.setAttribute('height', ''+resourceJson.dimentions[1]+'px');
+		htmlElement.style.width = ''+resourceJson.dimentions[0]+'px';
+		htmlElement.style.height = ''+resourceJson.dimentions[1]+'px';
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		threeDObject.position.x = resourceJson.coords[0];
 		threeDObject.position.y = resourceJson.coords[1];
