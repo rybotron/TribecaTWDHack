@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>three.js canvas - geometry - earth</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+		<script src="js/libs/jquery-1.9.1.min.js"></script>
+		<script src="js/libs/jquery-ui-1.10.1.custom.min.js"></script>
+
+		<script src="js/Detector.js"></script>
+
+		<script src="js/libs/three.min.js"></script>
+
+		<script src="js/libs/stats.min.js"></script>
+		<script src="js/libs/dat.gui.min.js"></script>
+		<script src="js/libs/tween.min.js"></script>
+
+		<script src="js/controls/OrbitControls.js"></script>
+		<script src="js/loaders/ColladaLoader.js"></script>
+		
+		<script src="js/utils.js"></script>
+		<script src="js/3Dmain.js"></script>
+
+		<style>
+			body {
+				color: #808080;
+				font-family: Garamond, serif;
+				font-size:13px;
+				text-align:center;
+
+				background-color: #000000;
+				margin: 0px;
+				padding: 0px;
+				overflow: hidden;
+			}
+
+	        canvas
+	        {
+	            pointer-events: none;
+	            z-index: 10;
+	        }
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+			#loadtext{
+				position: absolute;
+				top: 100px; width: 100%;
+				font-size: 20px;
+			}
+
+			#speedSlider {
+				width: 50%;
+			}
+
+			.center	{
+				margin-left:auto;
+				margin-right:auto;
+				width:70%;
+				background-color:#b0e0e6;
+			}
+	        
+	        #container
+	        {
+	            background: #000;
+	            width: 100%;
+	            height: 100%;
+	            margin: 0 auto;
+	            overflow: hidden;
+	        }
+
+
+		</style>
+	</head>
+
+	<body>
+
+	<div id="loadtext"></div>
+    <div id="container"></div>
+	<div id="info">Tribeca TWD</div>
+
+	</body>
+</html>
