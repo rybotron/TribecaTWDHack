@@ -17,11 +17,19 @@ var controls,
 
 var threeDHandler = {
 	handle: function (htmlElement, sceneJson, pieceJson){
-		htmlElement.style.width = ''+pieceJson.dimentions[0]+'px';
-		htmlElement.style.height = ''+pieceJson.dimentions[1]+'px';
+		if(pieceJson.dimentions){
+			var pieceWidth = pieceJson.dimentions[0];
+			var pieceHeight = pieceJson.dimentions[1];
+			if(pieceWidth !== undefined){
+				htmlElement.style.width = ''+pieceWidth+'px';
+			}
+			if(pieceHeight !== undefined){
+				htmlElement.style.height = ''+pieceHeight+'px';
+			}
+		}
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		var mag = sceneJson.coords[0];
-		var dir = sceneJson.coords[1];
+		var dir = sceneJson.coords[1]*(Math.PI/180);
 		var coords = [0,0,0]; //[x,y,z]
 		coords[0] = Math.sin(dir)*mag + pieceJson.coords[0];
 		coords[1] = 0                 + pieceJson.coords[1];
@@ -58,9 +66,9 @@ function init() {
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
 	camera.position.set( 0, 0, 800 );
 
-	controls = new THREE.OrbitControls( camera );
+	controls = new THREE.OrbitControls( camera, document.getElementById('container') );
 	scene = new THREE.Scene();
-
+/*
 	var element = document.createElement( 'div' );
 	element.style.width = '100px';
 	element.style.height = '100px';
@@ -72,7 +80,7 @@ function init() {
 	object.position.z = 0;
 	// object.scale.x = Math.random() + 0.5;
 	// object.scale.y = Math.random() + 0.5;
-	scene.add( object );
+	scene.add( object );*/
 
 
 	// var template = document.getElementById('label_template');
@@ -80,57 +88,6 @@ function init() {
 	// distance.nameLayer = distance.children[0];
 	// $contenttarget.append( distance );
 
-	var video1 = document.createElement( 'div' );
-	video1.style.width = '1280px';
-	video1.style.height = '720px';
-	video1.style.background = new THREE.Color( 0x000fff ).getStyle();
-
-	chapter1 = new THREE.CSS3DObject( video1 );
-	chapter1.position.x = 640;
-	chapter1.position.y = 360;
-	chapter1.position.z = -1000;
-
-	scene.add(chapter1);
-
-
-	var video2 = document.createElement( 'div' );
-	video2.style.width = '1280px';
-	video2.style.height = '720px';
-	video2.style.background = new THREE.Color( 0xfff000 ).getStyle();
-
-	chapter2 = new THREE.CSS3DObject( video2 );
-	chapter2.position.x = 640;
-	chapter2.position.y = -360;
-	chapter2.position.z = -1000;
-
-	scene.add(chapter2);
-
-
-
-	var video3 = document.createElement( 'div' );
-	video3.style.width = '1280px';
-	video3.style.height = '720px';
-	video3.style.background = new THREE.Color( 0x000fff ).getStyle();
-
-	chapter3 = new THREE.CSS3DObject( video3 );
-	chapter3.position.x = -640;
-	chapter3.position.y = -360;
-	chapter3.position.z = -1000;
-
-	scene.add(chapter3);
-
-
-	var video4 = document.createElement( 'div' );
-	video4.style.width = '1280px';
-	video4.style.height = '720px';
-	video4.style.background = new THREE.Color( 0xfff000 ).getStyle();
-
-	chapter4 = new THREE.CSS3DObject( video4 );
-	chapter4.position.x = -640;
-	chapter4.position.y = 360;
-	chapter4.position.z = -1000;
-
-	scene.add(chapter4);
 
 
 	renderer = new THREE.CSS3DRenderer();
@@ -155,10 +112,10 @@ function onWindowResize() {
 function animate() {
 
 	//////// ROTATE ON Y
-	var vector = new THREE.Vector3();
+	/*var vector = new THREE.Vector3();
 	vector.getPositionFromMatrix( object.matrixWorld );
 	vector.sub( camera.position );
-	object.rotation.y = Math.atan2( vector.x, vector.z);
+	object.rotation.y = Math.atan2( vector.x, vector.z);*/
 
 	requestAnimationFrame( animate );
 

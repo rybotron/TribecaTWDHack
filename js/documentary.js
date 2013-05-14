@@ -12,7 +12,7 @@ var documentary = {
 		if(sceneJson.pieces){
 			// Iterate through the set pieces and hand them to the resource handler.
 			for(var pieceIndex = 0; pieceIndex < sceneJson.pieces.length; pieceIndex++){
-				var indexedPiece = sceneJson.piece[pieceIndex];
+				var indexedPiece = sceneJson.pieces[pieceIndex];
 				var pieceElement = this.createPiece(indexedPiece);
 				this.resourceHandler.handle(pieceElement, sceneJson, indexedPiece);
 			}
