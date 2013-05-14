@@ -10,6 +10,8 @@ var VIEW_ANGLE = 45,
 
 var controls;
 
+var threeDHandler;
+
 init();
 animate();
 
