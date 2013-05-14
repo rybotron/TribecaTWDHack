@@ -1,0 +1,51 @@
+.expander, #toggle-tab{
+	background: rgba(255,255,255,0.3);
+	padding: 0.5em 1em;
+}
+#toggle-tab{
+	width: 10%;
+	text-align: center;
+	border-radius:  0em 0em 0.5em 0.5em;
+}
+#header > .expander{
+	border-radius:  0em 0em 0.5em 0em;
+}
+#footer > .expander{
+	border-radius:  0.5em 0.5em 0em 0em;
+}
+#header{
+	width: 90%;
+	position: absolute;
+	top: 0%;
+	left: 5%;
+	z-index: 1;
+	padding: 0em;
+}
+#content{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	z-index: 0
+}
+#footer{
+	width: 90%;
+	position: absolute;
+	bottom: 0%;
+	left: 5%;
+	z-index: 1;
+	padding: 0em;
+}
+.expander{
+	overflow: hidden;
+	height: auto;
+	/*transition: background 1s, height 1s, padding 1s;
+	-moz-transition: background 1s, height 1s, padding 1s;
+	-webkit-transition: background 1s, height 1s, padding 1s;
+	-o-transition: background 1s, height 1s, padding 1s;*/
+}
+.hidden > .expander{
+	height: 0em;
+	padding: 0em 1em;
+}

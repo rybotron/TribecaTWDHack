@@ -2,9 +2,10 @@
 <html lang="en">
 
 	<head>
-		<title>three.js canvas - geometry - earth</title>
 		<meta charset="utf-8">
+		<title>three.js canvas - geometry - earth</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="css/siteLayout.css">
 		<script src="js/libs/jquery-1.9.1.min.js"></script>
 
 		<script src="js/libs/three.min.js"></script>
@@ -21,13 +22,13 @@
 
 		<script src="js/resourceLibrary.js"></script>
 		<script src="js/documentary.js"></script>
+		<script src="js/pageNavigation.js"></script>
 		
 		<style>
 			body {
 				color: #808080;
 				font-family: Garamond, serif;
 				font-size:13px;
-				text-align:center;
 
 				background-color: #000000;
 				margin: 0px;
@@ -83,10 +84,24 @@
 	</head>
 
 	<body>
-
-	<div id="loadtext"></div>
-    <div id="container"></div>
-	<div id="info">Tomorrow We Disappear</div>
+		
+	<header id="header">
+		<div class="expander">
+			asdf
+		</div>
+		<div id="toggle-tab">Show Navigation</div>
+	</header>
+	<div id="content">
+		<div id="loadtext"></div>
+		<div id="container"></div>
+		<!--<div id="info">Tomorrow We Disappear</div>-->
+	</div>
+	<footer id="footer">
+		<div class="expander">
+			asdf
+		</div>
+	</footer>
+	
 	<script>
 		var htmlConfiguration = {
 			containerId: 'container',

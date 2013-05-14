@@ -11,13 +11,29 @@ var VIEW_ANGLE = 45,
 var controls;
 
 var threeDHandler = {
-	handle: function (htmlElement, resourceJson){
-		htmlElement.style.width = ''+resourceJson.dimentions[0]+'px';
-		htmlElement.style.height = ''+resourceJson.dimentions[1]+'px';
+	handle: function (htmlElement, sceneJson, pieceJson){
+		htmlElement.style.width = ''+pieceJson.dimentions[0]+'px';
+		htmlElement.style.height = ''+pieceJson.dimentions[1]+'px';
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
-		threeDObject.position.x = resourceJson.coords[0];
-		threeDObject.position.y = resourceJson.coords[1];
-		threeDObject.position.z = resourceJson.coords[2];
+		var mag = sceneJson.coords[0];
+		var dir = sceneJson.coords[1];
+		var coords = [0,0,0]; //[x,y,z]
+		coords[0] = Math.sin(dir)*mag + pieceJson.coords[0];
+		coords[1] = 0                 + pieceJson.coords[1];
+		coords[2] = Math.cos(dir)*mag + pieceJson.coords[2];
+		/*  X             
+		 *  |      Mag    
+		 *  |     /       
+		 *  |    /        
+		 *  |   /         
+		 *  |  /          
+		 *  | /           
+		 *  |/Dir         
+		 * ------------- Z
+		 */
+		threeDObject.position.x = coords[0];
+		threeDObject.position.y = coords[1];
+		threeDObject.position.z = coords[2];
 		// threeDObject.scale.x = Math.random() + 0.5;
 		// threeDObject.scale.y = Math.random() + 0.5;
 		scene.add( threeDObject );

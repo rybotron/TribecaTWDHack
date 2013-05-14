@@ -1,46 +1,48 @@
 var documentary = {
 	setup: function (domConfig, library){
-		var container = document.getElementById(domConfig.containerId)
-		console.log(domConfig.containerId)
-		// Iterate through the chapters and populate the 3D world with resources.
-		var resourceHandler = domConfig.resourceHandler;
-		for(var chapterIndex = 0; chapterIndex < library.chapters.length; chapterIndex++){
-			var indexedChapter = library.chapters[chapterIndex];
-			if(indexedChapter.resources){
-				// Iterate through the resources and hand them to the resource handler.
-				for(var rscIndex = 0; rscIndex < indexedChapter.resources.length; rscIndex++){
-					var indexedRsc = indexedChapter.resources[rscIndex];
-					var rscElement = this.createResouce(indexedRsc);
-					resourceHandler.handle(rscElement, indexedRsc)
-				}
+		var container = document.getElementById(domConfig.containerId);
+		// Iterate through the scenes and populate the 3D world with set pieces.
+		this.resourceHandler = domConfig.resourceHandler;
+		for(var sceneIndex = 0; sceneIndex < library.scenes.length; sceneIndex++){
+			var indexedScene = library.scenes[sceneIndex];
+			this.createScene(indexedScene);
+		}
+	},
+	createScene: function (sceneJson){
+		if(sceneJson.pieces){
+			// Iterate through the set pieces and hand them to the resource handler.
+			for(var pieceIndex = 0; pieceIndex < sceneJson.pieces.length; pieceIndex++){
+				var indexedPiece = sceneJson.piece[pieceIndex];
+				var pieceElement = this.createPiece(indexedPiece);
+				this.resourceHandler.handle(pieceElement, sceneJson, indexedPiece);
 			}
 		}
 	},
-	createResouce: function (rscJson){
-		var rscContainer = document.createElement('div');
-		rscContainer.setAttribute('class', 'resource');
-		var rscElement;
-		switch(rscJson.type){
+	createPiece: function (pieceJson){
+		var pieceContainer = document.createElement('div');
+		pieceContainer.setAttribute('class', 'resource');
+		var pieceElement;
+		switch(pieceJson.type){
 			case 'image':{
-				rscElement = document.createElement('img');
-				rscElement.setAttribute('src', rscJson.source);
+				pieceElement = document.createElement('img');
+				pieceElement.setAttribute('src', pieceJson.source);
 				break;
 			}
 			case 'video':{
-				rscElement = document.createElement('video');
-				rscElement.setAttribute('controls', 'controls')
-				for(var key in rscJson.source){
+				pieceElement = document.createElement('video');
+				pieceElement.setAttribute('controls', 'controls')
+				for(var key in pieceJson.source){
 					var sourceElement = document.createElement('source');
-					sourceElement.setAttribute('src', rscJson[key]);
-					rscElement.appendChild(sourceElement);
+					sourceElement.setAttribute('src', pieceJson[key]);
+					pieceElement.appendChild(sourceElement);
 				}
 				break;
 			}
 		}
-		if(rscElement){
-			rscContainer.appendChild(rscElement);
+		if(pieceElement){
+			pieceContainer.appendChild(pieceElement);
 		}
-		return rscContainer;
+		return pieceContainer;
 	}
 }
 document.addEventListener("DOMContentLoaded", function (){
