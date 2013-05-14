@@ -17,7 +17,7 @@ var resourceLibrary = {
 			resources: [
 				// Example Contents
 				//{type: 'image, or video, or something else', uri: 'a uri', coords: ['x','y','z'], dimentions: ['width', 'height']},
-				{type: 'image', source: 'images/target1.png', coords: [0,50,2], dimentions: [10, 10]}
+				{type: 'image', source: 'images/target1.png', coords: [0,0,500], dimentions: [100, 100]}
 			]
 		},
 		{
