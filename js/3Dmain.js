@@ -10,7 +10,11 @@ var VIEW_ANGLE = 45,
 
 var controls;
 
-var threeDHandler;
+var threeDHandler = {
+	handle: function (htmlElement, resourceJson){
+		
+	}
+};
 
 init();
 animate();
