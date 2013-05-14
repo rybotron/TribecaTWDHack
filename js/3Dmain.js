@@ -8,7 +8,12 @@ var VIEW_ANGLE = 45,
 	NEAR = .25,
 	FAR = 100000;
 
-var controls;
+var controls,
+	object,
+	chapter1,
+	chapter2,
+	chapter3,
+	chapter4;
 
 var threeDHandler = {
 	handle: function (htmlElement, sceneJson, pieceJson){
@@ -44,6 +49,7 @@ $(document).ready(function(){
 
 	init();
 	animate();
+	
 })
 
 
@@ -79,7 +85,7 @@ function init() {
 	video1.style.height = '720px';
 	video1.style.background = new THREE.Color( 0x000fff ).getStyle();
 
-	var chapter1 = new THREE.CSS3DObject( video1 );
+	chapter1 = new THREE.CSS3DObject( video1 );
 	chapter1.position.x = 640;
 	chapter1.position.y = 360;
 	chapter1.position.z = -1000;
@@ -92,7 +98,7 @@ function init() {
 	video2.style.height = '720px';
 	video2.style.background = new THREE.Color( 0xfff000 ).getStyle();
 
-	var chapter2 = new THREE.CSS3DObject( video2 );
+	chapter2 = new THREE.CSS3DObject( video2 );
 	chapter2.position.x = 640;
 	chapter2.position.y = -360;
 	chapter2.position.z = -1000;
@@ -106,7 +112,7 @@ function init() {
 	video3.style.height = '720px';
 	video3.style.background = new THREE.Color( 0x000fff ).getStyle();
 
-	var chapter3 = new THREE.CSS3DObject( video3 );
+	chapter3 = new THREE.CSS3DObject( video3 );
 	chapter3.position.x = -640;
 	chapter3.position.y = -360;
 	chapter3.position.z = -1000;
@@ -119,7 +125,7 @@ function init() {
 	video4.style.height = '720px';
 	video4.style.background = new THREE.Color( 0xfff000 ).getStyle();
 
-	var chapter4 = new THREE.CSS3DObject( video4 );
+	chapter4 = new THREE.CSS3DObject( video4 );
 	chapter4.position.x = -640;
 	chapter4.position.y = 360;
 	chapter4.position.z = -1000;
@@ -147,6 +153,12 @@ function onWindowResize() {
 }
 
 function animate() {
+
+	//////// ROTATE ON Y
+	var vector = new THREE.Vector3();
+	vector.getPositionFromMatrix( object.matrixWorld );
+	vector.sub( camera.position );
+	object.rotation.y = Math.atan2( vector.x, vector.z);
 
 	requestAnimationFrame( animate );
 
