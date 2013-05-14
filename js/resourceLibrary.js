@@ -31,28 +31,3 @@ var resourceLibrary = {
 		}
 	]
 }
-
-
-function Chapter(z, y, x){
-	this.z = z;
-	this.y = y;
-	this.x = x;
-	this.redraw = function (){};
-	return this;
-}
-var first_chapter = new Chapter(5,6,7)
-
-var first_chapter = {
-	'x': 'whatever',
-	'my_function': function (a){ return a+1}
-};
-first_chapter[x]
-
-
-
-
-first_chapter.new_value = 'value'
-delete first_chapter.new_value
-
-var an_array = new Array(5);
-var an_array = [5,6,7,8,7];
