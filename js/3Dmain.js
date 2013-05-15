@@ -214,7 +214,14 @@ var threeD = {
         }
     },
     cameraMotion: function () {
-        this.camCTRL.rotation.y -= ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
+        if (this.MOUSEX < -200)
+        {
+            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
+        }
+        if (this.MOUSEX > 200)
+        {
+            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+        }
 
 
         //if(this.camMotion)
