@@ -42,6 +42,15 @@ var threeD = {
 				htmlElement.style.height = ''+pieceHeight+'px';
 			}
 		}
+
+		if(pieceJson.opacity){
+			var pieceOpacity = pieceJson.opacity;
+			if(pieceOpacity !== undefined){
+				htmlElement.style.opacity = ''+pieceOpacity;
+				console.log(pieceOpacity);
+			}
+		}
+
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		var mag = sceneJson.coords[0];
 		var dir = (sceneJson.coords[1]+90)*(Math.PI/180);
