@@ -17,10 +17,9 @@ var resourceLibrary = {
 		{coords: [1200,60], pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
-			{type: 'image', source: 'images/TWD_plxD-slum02.png', coords: [  0,   0, -100]},
-			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [160,  50,  100], dimentions: [1000, 563]},
-			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
+			{type: 'image', source: 'images/scene1/boybending.png', coords: [  -800,   0,  500], dimentions: [425, 823]},
+			{type: 'image', source: 'images/scene1/drummer.png', coords: [  -200,   0,  -200], dimentions: [392, 800]},
+			{type: 'image', source: 'images/scene1/puppeteers.png', coords: [  200,   0,  10], dimentions: [545, 834]}
 		]},
 		{coords: [1200,120], pieces: [
 			// Example set piece:
