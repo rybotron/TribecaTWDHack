@@ -8,7 +8,7 @@ scenes: [
 			{type: 'image', source: 'images/phantom/fire_00000.png', coords: [  0,   0, 0]},
 			{type: 'image', source: 'images/phantom/fire_00001.png', coords: [  0,   0, 0]},
 			{type: 'image', source: 'images/phantom/fire_00002.png', coords: [  0,   0, 0]},
-			{type: 'image', source: 'images/phantom/fire_00002.png', coords: [  0,   0, 0]},
+			{type: 'image', source: 'images/phantom/fire_00003.png', coords: [  0,   0, 0]},
 		]},
 		{coords: [1200,60], pieces: [
 			// Example set piece:
