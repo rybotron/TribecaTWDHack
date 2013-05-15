@@ -18,15 +18,20 @@ var resourceLibrary = {
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/scene1/boybending.png', coords: [  -800,   0,  500], dimentions: [425, 823]},
-			{type: 'image', source: 'images/scene1/drummer.png', coords: [  -200,   0,  -200], dimentions: [392, 800]},
-			{type: 'image', source: 'images/scene1/puppeteers.png', coords: [  200,   0,  10], dimentions: [545, 834]}
+			{type: 'image', source: 'images/scene1/drummer.png', coords: [  -200,   0,  400], dimentions: [392, 800]},
+			{type: 'image', source: 'images/scene1/puppeteers.png', coords: [  200,   0,  300], dimentions: [545, 834]},
+			{type: 'image', source: 'images/scene1/tents1.png', coords: [  0,   -10,  700], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/scene1/tents2.png', coords: [  0,   -10,  750], dimentions: [1974, 758]},
+			{type: 'image', source: 'images/scene1/tents3.png', coords: [  0,   -10,  800], dimentions: [1818, 595]},
+			{type: 'image', source: 'images/scene1/tents4.png', coords: [  0,   -10,  850], dimentions: [2000, 548]},
+			{type: 'image', source: 'images/scene1/tents5.png', coords: [  0,   -10,  850], dimentions: [2000, 540]}
 		]},
 		{coords: [1200,120], pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/scene2/arch.png', coords: [  -300,   0, -300]},
 			{type: 'image', source: 'images/scene2/tents.png', coords: [  150,   -10,  -100]},
-			{type: 'image', source: 'images/scene2/buildings.png', coords: [  0,   200, 1], dimentions: [1024, 170]},
+			{type: 'image', source: 'images/scene2/buildings.png', coords: [  0,   300, 1], dimentions: [1024, 170]},
 
 		]},
 		{coords: [1200,180], pieces: [
