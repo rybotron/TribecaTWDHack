@@ -49,7 +49,7 @@ var resourceLibrary = {
 		{coords: [1200,300], pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'image', source: 'images/cityscape-collage.png', coords: [  0,   0,   0]},
+			{type: 'image', source: 'images/cityscape-collage-small.png', coords: [  0,   -100,   -100], dimentions: [1000, 119]},
 		]},
 	]
 }
