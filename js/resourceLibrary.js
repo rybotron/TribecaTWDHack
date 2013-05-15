@@ -1,11 +1,7 @@
 /* The Resources Library contains an ordered list of chapters.
  */
 var resourceLibrary = {
-	mainVideo: {
-		sourceMp4: 'a uri',
-		sourceWebm: 'a uri',
-		sourceOgv: 'a url'
-	},
+	tourDuration: 1000, // Length of documentary, in seconds.
 	scenes: [
 		// Example Scene:
 		//     {coords: [r, theta], pieces: [ ... ]},

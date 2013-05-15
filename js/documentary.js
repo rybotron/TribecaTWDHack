@@ -1,5 +1,18 @@
 var documentary = {
+	popcorn: undefined,
 	setup: function (domConfig, library){
+		Popcorn.player('baseplayer');
+		this.popcorn = Popcorn.baseplayer(domConfig.containerId, {
+			frameAnimation: true
+		});
+		this.popcorn.duration(library.tourDuration);
+		var slider = document.getElementById('controller');
+		slider.addEventListener('change', function (event){
+			documentary.popcorn.currentTime(this.value);
+		});
+		this.popcorn.on('timeupdate', function (event){
+			slider.value = this.currentTime();
+		});
 		var container = document.getElementById(domConfig.containerId);
 		// Iterate through the scenes and populate the 3D world with set pieces.
 		this.resourceHandler = domConfig.resourceHandler;

@@ -23,6 +23,8 @@ var pageNavigation = {
 		header.className = 'hidden';
 		footer.className = 'hidden';
 		this.display = false;
+		documentary.popcorn.play()
+		console.log('Starting')
 	}
 };
 document.addEventListener("DOMContentLoaded", function (){

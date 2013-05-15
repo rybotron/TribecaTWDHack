@@ -6,6 +6,12 @@
 		<title>three.js canvas - geometry - earth</title>
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="css/siteLayout.css">
+			
+		<!--<script src="http://cdn.popcornjs.org/code/dist/popcorn.min.js"></script>-->
+		<script src="http://cdn.popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+		<script src="js/libs/popcorn-base.js"></script>
+		<script src="js/cameraPlugin.js"></script>
+		
 		<script src="js/libs/jquery-1.9.1.min.js"></script>
 
 		<script src="js/libs/three.min.js"></script>
@@ -22,6 +28,13 @@
 		<script src="js/pageNavigation.js"></script>
 		
 		<style>
+			#controller {
+				background: magenta;
+				position: absolute;
+				left: 10%;
+				bottom: 5%;
+				width: 80%;
+			}
 			body {
 				color: #808080;
 				font-family: Garamond, serif;
@@ -92,6 +105,7 @@
 		<div id="loadtext"></div>
 		<div id="container"></div>
 		<!--<div id="info">Tomorrow We Disappear</div>-->
+		<input id="controller" type="range" min="0" max="1000" value="0" step="1" />
 	</div>
 	<footer id="footer">
 		<div class="expander">
