@@ -1,18 +1,20 @@
 var documentary = {
 	popcorn: undefined,
 	setup: function (domConfig, library){
-		Popcorn.player('baseplayer');
-		this.popcorn = Popcorn.baseplayer(domConfig.containerId, {
-			frameAnimation: true
-		});
-		this.popcorn.duration(library.tourDuration);
+		// Cannot Change!
+		var fakeVideo = Popcorn.HTMLNullVideoElement('#'+domConfig.containerId, {frameAnimation:true});
+		fakeVideo.src = '#t=,'+library.tourDuration;
+		this.popcorn = Popcorn(fakeVideo);
+		// Cannot Change!
+		
 		var slider = document.getElementById('controller');
-		slider.addEventListener('change', function (event){
+		slider.addEventListener('input', function (event){
 			documentary.popcorn.currentTime(this.value);
 		});
 		this.popcorn.on('timeupdate', function (event){
 			slider.value = this.currentTime();
 		});
+		this.popcorn.scene({start: 50, end: 950});
 		var container = document.getElementById(domConfig.containerId);
 		// Iterate through the scenes and populate the 3D world with set pieces.
 		this.resourceHandler = domConfig.resourceHandler;

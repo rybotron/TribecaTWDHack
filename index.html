@@ -7,10 +7,14 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="css/siteLayout.css">
 			
-		<!--<script src="http://cdn.popcornjs.org/code/dist/popcorn.min.js"></script>-->
-		<script src="http://cdn.popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+		<!-- Cannot Change!-->
+		<script src="js/libs/popcorn.js"></script>
+		<script src="js/libs/popcorn._MediaElementProto.js"></script>
+		<script src="js/libs/popcorn.HTMLNullVideoElement.js"></script>
+		<!-- Cannot Change!-->
+		
 		<script src="js/libs/popcorn-base.js"></script>
-		<script src="js/cameraPlugin.js"></script>
+		<script src="js/scenePlugin.js"></script>
 		
 		<script src="js/libs/jquery-1.9.1.min.js"></script>
 
@@ -35,9 +39,13 @@
 				bottom: 5%;
 				width: 80%;
 			}
+			@font-face{
+				font-family: 'News Gothic';
+			    src: url('News-Gothic-Extra-Condensed-BT.ttf');
+			}
 			body {
 				color: #808080;
-				font-family: Garamond, serif;
+				font-family: News Gothic, Garamond, serif;
 				font-size:13px;
 
 				background-color: #000000;
