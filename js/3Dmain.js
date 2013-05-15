@@ -15,6 +15,14 @@ var controls,
 	chapter3,
 	chapter4;
 
+var arctan = function (x,y){
+	if(y>=0){
+		return  Math.acos(x/Math.sqrt(x*x+y*y))
+	} else{
+		return -Math.acos(x/Math.sqrt(x*x+y*y))
+	}
+};
+
 var threeDHandler = {
 	handle: function (htmlElement, sceneJson, pieceJson){
 		if(pieceJson.dimentions){
@@ -29,11 +37,18 @@ var threeDHandler = {
 		}
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		var mag = sceneJson.coords[0];
-		var dir = sceneJson.coords[1]*(Math.PI/180);
-		var coords = [0,0,0]; //[x,y,z]
-		coords[0] = Math.sin(dir)*mag + pieceJson.coords[0];
-		coords[1] = 0                 + pieceJson.coords[1];
-		coords[2] = Math.cos(dir)*mag + pieceJson.coords[2];
+		var dir = (sceneJson.coords[1]+90)*(Math.PI/180);
+		var sceneCoordsCartesian = [
+			Math.cos(dir)*mag,
+			0                ,
+			Math.sin(dir)*mag,
+		];
+		var a = arctan(pieceJson.coords[0], pieceJson.coords[2]);
+		var b = a - (Math.PI/2 - dir);
+		var m = Math.sqrt(pieceJson.coords[0]*pieceJson.coords[0] + pieceJson.coords[2]*pieceJson.coords[2]);
+		var vOB = [sceneCoordsCartesian[0], sceneCoordsCartesian[2]];
+		var vBQ = [Math.cos(b)*m, Math.sin(b)*m];
+		var vOQ = [vOB[0]+vBQ[0], vOB[1]+vBQ[1]];
 		/*  X             
 		 *  |      Mag    
 		 *  |     /       
@@ -44,11 +59,20 @@ var threeDHandler = {
 		 *  |/Dir         
 		 * ------------- Z
 		 */
-		threeDObject.position.x = coords[0];
-		threeDObject.position.y = coords[1];
-		threeDObject.position.z = coords[2];
+		threeDObject.position.x = vOQ[0];
+		threeDObject.position.y = pieceJson.coords[1];
+		threeDObject.position.z = vOQ[1];
 		// threeDObject.scale.x = Math.random() + 0.5;
 		// threeDObject.scale.y = Math.random() + 0.5;
+		
+			
+		//////// ROTATE ON Y
+		var vector = new THREE.Vector3();
+		vector.getPositionFromMatrix( object.matrixWorld );
+		vector.sub( threeDObject.position );
+		threeDObject.rotation.y = Math.atan2( vector.x, vector.z);
+		
+		//threeDObject.rotation.y = dir;
 		scene.add( threeDObject );
 	}
 };
@@ -64,15 +88,15 @@ $(document).ready(function(){
 function init() {
 
 	camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR );
-	camera.position.set( 0, 0, 800 );
+	camera.position.set( 0, 0, -1 );
 
 	controls = new THREE.OrbitControls( camera, document.getElementById('container') );
 	scene = new THREE.Scene();
-/*
+
 	var element = document.createElement( 'div' );
-	element.style.width = '100px';
-	element.style.height = '100px';
-	element.style.background = new THREE.Color( 0x000000 ).getStyle();
+	element.style.width = '1px';
+	element.style.height = '1px';
+	element.style.background = 'rgba(255,0,0,0.1)'//new THREE.Color( 0x000000 ).getStyle();
 
 	object = new THREE.CSS3DObject( element );
 	object.position.x = 0;
@@ -80,7 +104,7 @@ function init() {
 	object.position.z = 0;
 	// object.scale.x = Math.random() + 0.5;
 	// object.scale.y = Math.random() + 0.5;
-	scene.add( object );*/
+	scene.add( object );
 
 
 	// var template = document.getElementById('label_template');
