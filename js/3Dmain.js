@@ -43,7 +43,7 @@ var threeDHandler = {
 			0                ,
 			Math.sin(dir)*mag,
 		];
-		var a = arctan(pieceJson.coords[0], pieceJson.coords[2]);
+		var a = arctan(-pieceJson.coords[0], pieceJson.coords[2]);
 		var b = a - (Math.PI/2 - dir);
 		var m = Math.sqrt(pieceJson.coords[0]*pieceJson.coords[0] + pieceJson.coords[2]*pieceJson.coords[2]);
 		var vOB = [sceneCoordsCartesian[0], sceneCoordsCartesian[2]];
@@ -96,7 +96,7 @@ function init() {
 	var element = document.createElement( 'div' );
 	element.style.width = '1px';
 	element.style.height = '1px';
-	element.style.background = 'rgba(255,0,0,0.1)'//new THREE.Color( 0x000000 ).getStyle();
+	element.style.background = 'rgba(255,0,0,0.0)'//new THREE.Color( 0x000000 ).getStyle();
 
 	object = new THREE.CSS3DObject( element );
 	object.position.x = 0;

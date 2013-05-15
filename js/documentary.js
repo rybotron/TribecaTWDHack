@@ -29,6 +29,7 @@ var documentary = {
 				break;
 			}
 			case 'video':{
+				pieceContainer.style.background = 'blue'
 				pieceElement = document.createElement('video');
 				pieceElement.setAttribute('controls', 'controls')
 				for(var key in pieceJson.source){
