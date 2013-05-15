@@ -53,7 +53,7 @@ var threeD = {
 
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		var mag = sceneJson.coords[0];
-		var dir = (sceneJson.coords[1]+90)*(Math.PI/180);
+		var dir = (sceneJson.coords[1]-90)*(Math.PI/180);
 		var sceneCoordsCartesian = [
 			Math.cos(dir)*mag,
 			0                ,
