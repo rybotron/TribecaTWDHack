@@ -2,6 +2,7 @@ var threeD = {
 	camera: undefined,
 	scene: undefined,
 	renderer: undefined,
+    camCTRL: undefined,
 
 	WIDTH: $(window).width(),
     HEIGHT: $(window).height(),
@@ -10,6 +11,13 @@ var threeD = {
 	ASPECT: this.WIDTH / this.HEIGHT,
 	NEAR: .25,
 	FAR: 100000,
+
+    MOUSEX: 0,
+    MOUSEY: 0,
+    ZOOM: 0,
+
+    windowHalfX: window.innerWidth / 2,
+    windowHalfY: window.innerHeight / 2,
 
 	controls: undefined,
 	object: undefined,
@@ -65,11 +73,17 @@ var threeD = {
 		this.scene.add( threeDObject );
 	},
 	init: function () {
+        this.scene = new THREE.Scene();
+        this.camCTRL = new THREE.Object3D;
+
 		this.camera = new THREE.PerspectiveCamera( this.VIEW_ANGLE, this.ASPECT, this.NEAR, this.FAR );
 		this.camera.position.set( 0, 0, -1 );
+
+        this.camCTRL.add(this.camera);
+        this.scene.add(this.camCTRL);
 	
-		this.controls = new THREE.OrbitControls( this.camera, document.getElementById('container') );
-		this.scene = new THREE.Scene();
+		//this.controls = new THREE.OrbitControls( this.camera, document.getElementById('container') );
+
 	
 		var element = document.createElement( 'div' );
 		element.style.width = '1px';
@@ -161,6 +175,8 @@ var threeD = {
 		document.getElementById( 'container' ).appendChild( this.renderer.domElement );
 	
 		window.addEventListener( 'resize', this.onWindowResize.bind(this), false );
+        window.addEventListener( 'mousemove', this.onMouseMove.bind(this), false);
+        window.addEventListener( 'mousedown', this.onMouseDown.bind(this), false);
 	},
 	onWindowResize: function () {
 		this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -168,19 +184,49 @@ var threeD = {
 
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 	},
+    onMouseMove: function ( e ) {
+                this.MOUSEX = e.pageX;
+                this.MOUSEY = e.pageY;
+
+                this.MOUSEX = ( event.pageX - (this.windowHalfX))*.75;
+                this.MOUSEY = ( event.pageY - this.windowHalfY );
+    },
+    onMouseDown: function ( e ) {
+        if (this.ZOOM == 0 )
+        {
+            this.ZOOM = 1;
+            this.camera.position.z = 100;
+        }
+        else
+        {
+            this.ZOOM = 0;
+            this.camera.position.z = 0;
+        }
+    },
 	animate: function () {
 		//////// ROTATE ON Y
 		/*var vector = new THREE.Vector3();
 		vector.getPositionFromMatrix( object.matrixWorld );
 		vector.sub( camera.position );
 		object.rotation.y = Math.atan2( vector.x, vector.z);*/
+
 		
 		requestAnimationFrame( this.animate.bind(this) );
+
 	
 		TWEEN.update();
 	
-		this.controls.update();
+		//this.controls.update();
 		this.render();
+        //this.camera.position.x += this.MOUSEX;
+        //this.camera.rotation.y = ((Math.PI / 180) * this.MOUSEX ) / 10 ;
+
+        // This one is cool
+        //this.camera.position.x = THREE.Math.clamp( ( this.MOUSEX - this.camera.position.x ) * .05, -10, 10 )*-1;
+
+        this.camCTRL.rotation.y += ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
+        this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 100 );
+        this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
 	
 	},
 	render: function () {
