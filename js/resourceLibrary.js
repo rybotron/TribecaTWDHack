@@ -25,9 +25,10 @@ var resourceLibrary = {
 		{coords: [1200,120], pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
-			{type: 'image', source: 'images/TWD_plxD-slum02.png', coords: [  0,   0, -100]},
-			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
+			{type: 'image', source: 'images/scene2/arch.png', coords: [  -300,   0, -300]},
+			{type: 'image', source: 'images/scene2/tents.png', coords: [  150,   -10,  -100]},
+			{type: 'image', source: 'images/scene2/buildings.png', coords: [  0,   200, 1], dimentions: [1024, 170]},
+
 		]},
 		{coords: [1200,180], pieces: [
 			// Example set piece:
@@ -48,10 +49,7 @@ var resourceLibrary = {
 		{coords: [1200,300], pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
-			{type: 'image', source: 'images/TWD_plxD-slum02.png', coords: [  0,   0, -100]},
-			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [250,  50,  100]},
-			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
+			{type: 'image', source: 'images/cityscape-collage.png', coords: [  0,   0,   0]},
 		]},
 	]
 }
