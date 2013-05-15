@@ -1,6 +1,7 @@
 var threeD = {
 
 	nav: true,
+    camMotion: true,
 	camera: undefined,
 	scene: undefined,
 	renderer: undefined,
@@ -42,9 +43,18 @@ var threeD = {
 				htmlElement.style.height = ''+pieceHeight+'px';
 			}
 		}
+
+		if(pieceJson.opacity){
+			var pieceOpacity = pieceJson.opacity;
+			if(pieceOpacity !== undefined){
+				htmlElement.style.opacity = ''+pieceOpacity;
+				console.log(pieceOpacity);
+			}
+		}
+
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		var mag = sceneJson.coords[0];
-		var dir = (sceneJson.coords[1]+90)*(Math.PI/180);
+		var dir = (sceneJson.coords[1]-90)*(Math.PI/180);
 		var sceneCoordsCartesian = [
 			Math.cos(dir)*mag,
 			0                ,
@@ -147,7 +157,6 @@ var threeD = {
 			}
 		];
 
-		var skybox = new THREE.Object3D();
 
 		for ( var i = 0; i < sides.length; i ++ ) {
 
@@ -169,6 +178,8 @@ var threeD = {
 			this.scene.add(object);
 
 		}
+		
+
 	
 		this.renderer = new THREE.CSS3DRenderer();
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
@@ -195,13 +206,40 @@ var threeD = {
         {
             this.ZOOM = 1;
 
-            Tweener( threeD.camera.position, {z:1000}, 500)
+            Tweener( this.camera.position, {z:-500}, 500);
         }
         else
         {
             this.ZOOM = 0;
-            Tweener( threeD.camera.position, {z:0}, 500)
+            Tweener( this.camera.position, {z:0}, 500);
         }
+    },
+    cameraMotion: function () {
+        if (this.MOUSEX < -200)
+        {
+            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
+        }
+        if (this.MOUSEX > 200)
+        {
+            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+        }
+
+        if (this.camMotion == true)
+        {
+            var randY = Math.floor(Math.random() * 50) - 25;
+            var randX = Math.floor(Math.random() * 50) - 25;
+            var timeVal = Math.floor(Math.random() * 1500) + 4000;
+            console.log(timeVal);
+
+            Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
+
+            this.camMotion=false;
+        }
+
+        // Mouse Driven
+        //this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
+        //this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
+
     },
 	animate: function () {
 		//////// ROTATE ON Y
@@ -220,9 +258,7 @@ var threeD = {
 		this.render();
 
 		if(this.nav){
-	        this.camCTRL.rotation.y -= ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
-	        this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
-	        this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
+            this.cameraMotion();
 	    }
 	
 	},
