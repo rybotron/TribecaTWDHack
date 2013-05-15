@@ -49,10 +49,10 @@ var resourceLibrary = {
 		{coords: [1200,300], pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'image', source: 'images/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
-			{type: 'image', source: 'images/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
-			{type: 'image', source: 'images/scene4-00.png', coords: [  100,   -20,   -700], dimentions: [312, 355]},
-			{type: 'image', source: 'images/scene4-08.png', coords: [  -200,   0,   100], dimentions: [708, 1024]},
+			{type: 'image', source: 'images/scene4/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
+			{type: 'image', source: 'images/scene4/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
+			{type: 'image', source: 'images/scene4/scene4-00.png', coords: [  100,   -20,   -700], dimentions: [312, 355]},
+			{type: 'image', source: 'images/scene4/scene4-08.png', coords: [  -200,   0,   100], dimentions: [708, 1024]},
 		]},
 	]
 }
