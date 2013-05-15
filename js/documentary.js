@@ -7,13 +7,13 @@ var documentary = {
 		this.popcorn = Popcorn(fakeVideo);
 		// Cannot Change!
 		
-		var slider = document.getElementById('controller');
-		slider.addEventListener('input', function (event){
+		//var slider = document.getElementById('controller');
+		/*slider.addEventListener('input', function (event){
 			documentary.popcorn.currentTime(this.value);
-		});
-		this.popcorn.on('timeupdate', function (event){
+		});*/
+		/*this.popcorn.on('timeupdate', function (event){
 			slider.value = this.currentTime();
-		});
+		});*/
 		this.popcorn.scene({start: 50, end: 950});
 		var container = document.getElementById(domConfig.containerId);
 		// Iterate through the scenes and populate the 3D world with set pieces.

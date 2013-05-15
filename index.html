@@ -30,7 +30,7 @@
 
 		<script src="js/resourceLibrary.js"></script>
 		<script src="js/documentary.js"></script>
-		<script src="js/pageNavigation.js"></script>
+		<script src="js/controlBar.js"></script>
 		
 		<style>
 			#controller {
@@ -108,18 +108,21 @@
 		<div class="expander">
 			asdf
 		</div>
-		<div id="toggle-tab">Show Navigation</div>
 	</header>
 	<div id="content">
 		<div id="loadtext"></div>
 		<div id="container"></div>
 		<!--<div id="info">Tomorrow We Disappear</div>-->
-		<input id="controller" type="range" min="0" max="1000" value="0" step="1" />
 	</div>
 	<footer id="footer">
-		<div class="expander">
-			asdf
+		<div id="control-bar">
+			<img id="play" src="images/layout/play.png" />
+			<div id="timeline">
+				<img id="past" src="images/layout/past.png" />
+				<img id="future" src="images/layout/future.png" />
+			</div>
 		</div>
+		<div id="stripes"></div>
 	</footer>
 	
 	<script>
