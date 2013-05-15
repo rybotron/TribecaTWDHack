@@ -1,4 +1,3 @@
-
 var threeD = {
 	camera: undefined,
 	scene: undefined,
@@ -22,9 +21,6 @@ var threeD = {
 			return -Math.acos(x/Math.sqrt(x*x+y*y))
 		}
 	},
-
-
-var threeDHandler = {
 	handle: function (htmlElement, sceneJson, pieceJson){
 		if(pieceJson.dimentions){
 			var pieceWidth = pieceJson.dimentions[0];
@@ -132,4 +128,3 @@ $(document).ready(function(){
 	threeD.init();
 	threeD.animate();
 })
-
