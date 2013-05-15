@@ -1,4 +1,6 @@
 var threeD = {
+
+	nav: true,
 	camera: undefined,
 	scene: undefined,
 	renderer: undefined,
@@ -217,9 +219,11 @@ var threeD = {
 		//this.controls.update();
 		this.render();
 
-        this.camCTRL.rotation.y -= ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
-        this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
-        this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
+		if(this.nav){
+	        this.camCTRL.rotation.y -= ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
+	        this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
+	        this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
+	    }
 	
 	},
 	render: function () {
