@@ -189,7 +189,7 @@ var threeD = {
 	
 		window.addEventListener( 'resize', this.onWindowResize.bind(this), false );
         window.addEventListener( 'mousemove', this.onMouseMove.bind(this), false);
-        window.addEventListener( 'mousedown', this.onMouseDown.bind(this), false);
+        document.getElementById( 'container' ).addEventListener( 'mousedown', this.onMouseDown.bind(this), false);
 	},
 	onWindowResize: function () {
 		this.camera.aspect = window.innerWidth / window.innerHeight;
@@ -202,6 +202,7 @@ var threeD = {
         this.MOUSEY = ( e.clientY - this.windowHalfY );
     },
     onMouseDown: function ( e ) {
+
         if (this.ZOOM == 0 )
         {
             this.ZOOM = 1;
