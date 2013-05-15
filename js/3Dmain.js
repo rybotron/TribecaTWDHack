@@ -88,6 +88,71 @@ var threeD = {
 		// distance = template.cloneNode(true);
 		// distance.nameLayer = distance.children[0];
 		// $contenttarget.append( distance );
+
+
+		var sideScale = 20;
+
+		var sides = [
+			{
+				url: 'textures/skybox/skybox_06.png',
+				position: new THREE.Vector3( -512, 0, 0 ),
+				rotation: new THREE.Vector3( 0, Math.PI / 2, 0 ),
+				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
+			},
+			{
+				url: 'textures/skybox/skybox_04.png',
+				position: new THREE.Vector3( 512, 0, 0 ),
+				rotation: new THREE.Vector3( 0, -Math.PI / 2, 0 ),
+				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
+			},
+			{
+				url: 'textures/skybox/skybox_02.png',
+				position: new THREE.Vector3( 0,  512, 0 ),
+				rotation: new THREE.Vector3( Math.PI / 2, 0, Math.PI ),
+				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
+			},
+			{
+				url: 'textures/skybox/skybox_09.png',
+				position: new THREE.Vector3( 0, -512, 0 ),
+				rotation: new THREE.Vector3( - Math.PI / 2, 0, Math.PI ),
+				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
+			},
+			{
+				url: 'textures/skybox/skybox_05.png',
+				position: new THREE.Vector3( 0, 0,  512 ),
+				rotation: new THREE.Vector3( 0, Math.PI, 0 ),
+				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
+			},
+			{
+				url: 'textures/skybox/skybox_07.png',
+				position: new THREE.Vector3( 0, 0, -512 ),
+				rotation: new THREE.Vector3( 0, 0, 0 ),
+				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
+			}
+		];
+
+		var skybox = new THREE.Object3D();
+
+		for ( var i = 0; i < sides.length; i ++ ) {
+
+			var side = sides[ i ];
+
+			var element = document.createElement( 'img' );
+			element.width = 1026; // 2 pixels extra to close the gap.
+			element.src = side.url;
+
+			var object = new THREE.CSS3DObject( element );
+
+			var vec = new THREE.Vector3();
+			vec.multiplyVectors( side.position, side.scale );
+
+			object.position = vec;
+			object.rotation = side.rotation;
+			object.scale = side.scale;
+
+			this.scene.add(object);
+
+		}
 	
 		this.renderer = new THREE.CSS3DRenderer();
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
