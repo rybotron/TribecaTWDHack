@@ -157,7 +157,6 @@ var threeD = {
 			}
 		];
 
-		var skybox = new THREE.Object3D();
 
 		for ( var i = 0; i < sides.length; i ++ ) {
 
@@ -179,6 +178,8 @@ var threeD = {
 			this.scene.add(object);
 
 		}
+		
+
 	
 		this.renderer = new THREE.CSS3DRenderer();
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
