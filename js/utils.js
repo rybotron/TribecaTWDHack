@@ -18,7 +18,10 @@ function Tweener( obj, target, time ){
 	var scaler = new TWEEN.Tween( obj )
 		.to( target, time )
 		.easing( TWEEN.Easing.Sinusoidal.InOut )
+        .onComplete(function(){threeD.camMotion=true;})
+        .onStart(function(){threeD.camMotion=false;})
 		.start();
+    return scaler;
 }
 
 var camPosition = function( position, target, time ){
