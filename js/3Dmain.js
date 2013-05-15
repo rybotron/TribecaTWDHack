@@ -224,24 +224,19 @@ var threeD = {
             this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
         }
 
-
-        //if(this.camMotion)
-        //{
+        if (this.camMotion == true)
+        {
             var randY = Math.floor(Math.random() * 50) - 25;
             var randX = Math.floor(Math.random() * 50) - 25;
-            var timeVal = Math.floor(Math.random() * 3000) + 1500;
-            //console.log(randY);
-            if (this.camMotion == true)
-            {
-                Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
+            var timeVal = Math.floor(Math.random() * 1500) + 4000;
+            console.log(timeVal);
 
-                this.camMotion=false;
-                //setTimeout( function(){this.camMotion = true;}, timeVal );
-                //var randTween = Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
-                console.log(this.camMotion);
-            }
+            Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
 
-        //}
+            this.camMotion=false;
+        }
+
+        // Mouse Driven
         //this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
         //this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
 
@@ -263,9 +258,6 @@ var threeD = {
 		this.render();
 
 		if(this.nav){
-	        //this.camCTRL.rotation.y -= ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
-	        //this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
-	        //this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
             this.cameraMotion();
 	    }
 	
