@@ -185,22 +185,20 @@ var threeD = {
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 	},
     onMouseMove: function ( e ) {
-                this.MOUSEX = e.pageX;
-                this.MOUSEY = e.pageY;
-
-                this.MOUSEX = ( event.pageX - (this.windowHalfX))*.75;
-                this.MOUSEY = ( event.pageY - this.windowHalfY );
+        this.MOUSEX = ( e.clientX - (this.windowHalfX))*.75;
+        this.MOUSEY = ( e.clientY - this.windowHalfY );
     },
     onMouseDown: function ( e ) {
         if (this.ZOOM == 0 )
         {
             this.ZOOM = 1;
-            this.camera.position.z = 100;
+
+            Tweener( threeD.camera.position, {z:1000}, 500)
         }
         else
         {
             this.ZOOM = 0;
-            this.camera.position.z = 0;
+            Tweener( threeD.camera.position, {z:0}, 500)
         }
     },
 	animate: function () {
@@ -218,14 +216,9 @@ var threeD = {
 	
 		//this.controls.update();
 		this.render();
-        //this.camera.position.x += this.MOUSEX;
-        //this.camera.rotation.y = ((Math.PI / 180) * this.MOUSEX ) / 10 ;
 
-        // This one is cool
-        //this.camera.position.x = THREE.Math.clamp( ( this.MOUSEX - this.camera.position.x ) * .05, -10, 10 )*-1;
-
-        this.camCTRL.rotation.y += ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
-        this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 100 );
+        this.camCTRL.rotation.y -= ( ((Math.PI / 180) * this.MOUSEX ) - this.camCTRL.position.x ) *.001;
+        this.camera.position.y = THREE.Math.clamp( this.camera.position.y + ( - this.MOUSEY - this.camera.position.y ) * .05, -25, 25 );
         this.camera.position.x = THREE.Math.clamp( this.camera.position.x + ( - this.MOUSEX - this.camera.position.x ) * .05, -20, 20 );
 	
 	},
