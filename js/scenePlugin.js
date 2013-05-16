@@ -23,6 +23,10 @@
 				}
 			},
 			end: function (event){
+				if(sceneJson.video){
+					sceneJson.video.pause()
+					sceneJson.video.currentTime =(0);
+				}
 			},
 			frame: function (event){
 			}
