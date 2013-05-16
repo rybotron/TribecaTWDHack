@@ -11,7 +11,7 @@ var resourceLibrary = {
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
             {type: 'video', source: {mp4: 'video/intro.mp4'}, coords: [ 0,  0,  100 ], dimentions: [960, 540]},
 		]},
-		{coords: [hexSize,60], duration: 10, time: 43, year: '1950', title: 'Tent Camp', pieces: [
+		{coords: [hexSize,60], duration: 10, time: 43, year: '1950', title: 'Tent Camp', audio: {ogg: 'audio/music1.ogg', mpeg: 'audio/music1.mp3'}, pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
@@ -22,7 +22,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene1/compressed/tents3.png', coords: [  650,   -100,  750], dimentions: [1974, 512]},
 			{type: 'image', source: 'images/scene1/compressed/tents2.png', coords: [  450,   -75,  1000], dimentions: [1974, 758]},
 		]},
-		{coords: [hexSize,120], duration: 50, time: 56, year: '1964', title: 'Artists\' Village', pieces: [
+		{coords: [hexSize,120], duration: 50, time: 56, year: '1964', title: 'Artists\' Village', audio: {ogg: 'audio/music2.ogg', mpeg: 'audio/music2.mp3'}, pieces: [
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1964'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['They petition the government to turn the Kathputli Colony into an artists\' village.',
@@ -33,7 +33,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene2/compressed/tents.png', coords: [  -900,   -50,  500], dimentions: [775, 474]},
 			{type: 'video', source: {mp4: 'video/bbc.mp4'}, coords: [ -100,  -100,  -250 ], dimentions: [960, 540]}
 		]},
-		{coords: [hexSize,180], duration: 15, time: 109, year: '2011', title: 'Slum', pieces: [
+		{coords: [hexSize,180], duration: 15, time: 109, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['2011'], coords: [  -1000, -350, -20]},
@@ -43,7 +43,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0, -1100]},
 			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  -700]},
 		]},
-		{coords: [hexSize,240], duration: 15, time: 127, year: '2011', title: 'Slum', pieces: [
+		{coords: [hexSize,240], duration: 15, time: 127, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
@@ -53,7 +53,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene3/compressed/turbanman.png', coords: [  300,   -120,  -400], dimentions: [595, 920]},
 			{type: 'video', source: {mp4: 'video/firebreather.mp4'}, coords: [ -300,  200,  -240 ], dimentions: [960, 540]}
 		]},
-		{coords: [hexSize,300], duration: 10, time: 145, year: '2014', title: 'Skyscraper', pieces: [
+		{coords: [hexSize,300], duration: 10, time: 145, year: '2014', title: 'Skyscraper', audio: {ogg: 'audio/music4.ogg', mpeg: 'audio/music4.mp3'}, pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['2014'], coords: [  -1000, -350, -20]},
