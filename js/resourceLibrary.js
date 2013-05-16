@@ -9,7 +9,7 @@ var resourceLibrary = {
 		{coords: [hexSize,0], duration: 40, time: 0, year: '19NN', title: 'Introduction', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-            {type: 'video', source: {mp4: 'video/intro.mp4'}, coords: [ 0,  0,  100 ], dimentions: [960, 540]}
+            {type: 'video', source: {mp4: 'video/intro.mp4'}, coords: [ 0,  0,  100 ], dimentions: [960, 540]},
 		]},
 		{coords: [hexSize,60], duration: 10, time: 43, year: '1950', title: 'Tent Camp', pieces: [
 			// Example set piece:
@@ -47,12 +47,12 @@ var resourceLibrary = {
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
-			{type: 'image', source: 'images/scene3/compressed/puran.png', coords: [  0,   0, -300]}, dimentions: [1222, 1189]},
-			{type: 'image', source: 'images/scene3/compressed/headstandboy.png', coords: [  0,   0, -100]}, dimentions: [1000, 667]},
-			{type: 'image', source: 'images/scene3/compressed/wallcart.png', coords: [  0,   0, -100]}, dimentions: [800, 413]},
-			{type: 'image', source: 'images/scene3/compressed/wallstairs.png', coords: [  0,   0, -100]}, dimentions: [1000, 601]},
-			{type: 'image', source: 'images/scene3/compressed/transithousing.png', coords: [  0,   0, -100]}, dimentions: [2000, 520]},
-			{type: 'image', source: 'images/scene3/compressed/turbanman.png', coords: [  0,   0,  300]}, dimentions: [595, 920]},
+			{type: 'image', source: 'images/scene3/compressed/puran.png', coords: [  0,   0, -300], dimentions: [1222, 1189]},
+			{type: 'image', source: 'images/scene3/compressed/headstandboy.png', coords: [  0,   0, -100], dimentions: [1000, 667]},
+			{type: 'image', source: 'images/scene3/compressed/wallcart.png', coords: [  0,   0, -100], dimentions: [800, 413]},
+			{type: 'image', source: 'images/scene3/compressed/wallstairs.png', coords: [  0,   0, -100], dimentions: [1000, 601]},
+			{type: 'image', source: 'images/scene3/compressed/transithousing.png', coords: [  0,   0, -100], dimentions: [2000, 520]},
+			{type: 'image', source: 'images/scene3/compressed/turbanman.png', coords: [  0,   0,  300], dimentions: [595, 920]},
 			{type: 'video', source: {mp4: 'video/firebreather.mp4'}, coords: [ -200,  -200,  500 ], dimentions: [960, 540]}
 		]},
 		{coords: [hexSize,300], duration: 10, time: 145, year: '2014', title: 'Skyscraper', pieces: [
