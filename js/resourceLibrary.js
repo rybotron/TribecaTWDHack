@@ -1,6 +1,6 @@
 /* The Resources Library contains an ordered list of chapters.
  */
-var hexSize = 2000;
+var hexSize = 2500;
 var resourceLibrary = {
 	tourDuration: 155, // Length of documentary, in seconds.
 	scenes: [
@@ -14,9 +14,9 @@ var resourceLibrary = {
 		{coords: [hexSize,60], duration: 10, time: 43, year: '1950', title: 'Tent Camp', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'date', text: ['1950'], coords: [  -500, -375, -10]},
+			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['India\'s magicians, acrobats, and puppeteers leave the rural villages for New Delhi.', 
-			'They set up a tent camp called \"The Kathputli Colony.\"'], coords: [  100,   0, -200]},
+			'They set up a tent camp called \"The Kathputli Colony.\"'], coords: [  500,   0, -200]},
 			{type: 'image', source: 'images/scene1/compressed/tents4.png', coords: [  0,  -100,  10], dimentions: [2000, 548]},
 			{type: 'image', source: 'images/scene1/compressed/tents3.png', coords: [  650,   -100,  750], dimentions: [1974, 512]},
 			{type: 'image', source: 'images/scene1/compressed/tents2.png', coords: [  450,   -75,  1000], dimentions: [1974, 758]},
@@ -46,6 +46,7 @@ var resourceLibrary = {
 		{coords: [hexSize,240], duration: 15, time: 127, year: '2011', title: 'Slum', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
+			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
 			{type: 'image', source: 'images/scene3/compressed/puran.png', coords: [  0,   0, -300]},
 			{type: 'image', source: 'images/scene3/compressed/headstandboy.png', coords: [  0,   0, -100]},
 			{type: 'image', source: 'images/scene3/compressed/wallcart.png', coords: [  0,   0, -100]},
@@ -60,6 +61,7 @@ var resourceLibrary = {
 			{type: 'text', text: ['The government announces the artists\' land has been sold to a real-estate developer.',
 			'They plan to build New Delhi\'s first skyscraper on the Kathputli land.',
 			'2,800 artist families will move into transit camps.'], coords: [  0,   0, -200]},
+
 			{type: 'image', source: 'images/scene4/compressed/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
 			{type: 'image', source: 'images/scene4/compressed/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
 			{type: 'image', source: 'images/scene4/compressed/scene4-00.png', coords: [  100,   -20,   -700], dimentions: [312, 355]},
