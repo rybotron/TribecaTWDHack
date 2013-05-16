@@ -57,10 +57,9 @@ var resourceLibrary = {
 		{coords: [hexSize,240], time: 270, year: '2011', title: 'Slum', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0, -100]},
-			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [250,  50,  100]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
+			{type: 'image', source: 'images/scene3/compressed/puran.png', coords: [  0,   0, -300]},
+			{type: 'image', source: 'images/scene3/compressed/transithousing.png', coords: [  0,   0, -100]},
+			{type: 'image', source: 'images/scene3/compressed/turbanman.png', coords: [  0,   0,  300]}
 		]},
 		{coords: [hexSize,300], time: 340, year: '2014', title: 'Skyscraper', pieces: [
 			// Example set piece:
