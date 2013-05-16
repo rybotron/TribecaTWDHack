@@ -70,8 +70,6 @@ var threeD = {
 			}
 		}
 
-		htmlElement.setAttribute('class', 'threeDimage');
-
 		var threeDObject = new THREE.CSS3DObject( htmlElement );
 		var mag = sceneJson.coords[0];
 		var dir = (sceneJson.coords[1]-90)*(Math.PI/180);
@@ -98,12 +96,12 @@ var threeD = {
 		// threeDObject.scale.x = Math.random() + 0.5;
 		// threeDObject.scale.y = Math.random() + 0.5;
 		//////// ROTATE ON Y
-		// var sceneVector = new THREE.Vector3(sceneCoordsCartesian[0], sceneCoordsCartesian[1], sceneCoordsCartesian[2]);
-		var vector = new THREE.Vector3();
-		vector.getPositionFromMatrix( this.object.matrixWorld );
-		vector.sub( threeDObject.position );
+		var sceneVector = new THREE.Vector3(sceneCoordsCartesian[0], sceneCoordsCartesian[1], sceneCoordsCartesian[2]);
+		//var vector = new THREE.Vector3();
+		//vector.getPositionFromMatrix( this.object.matrixWorld );
+		//sceneVector.sub( threeDObject.position );
 		//console.log(threeDObject.position)
-		threeDObject.rotation.y = Math.PI + Math.atan2( vector.x, vector.z);
+		threeDObject.rotation.y = Math.PI + Math.atan2( sceneVector.x, sceneVector.z);
 		//threeDObject.rotation.y = dir;
 		this.scene.add( threeDObject );
 	},
@@ -190,7 +188,6 @@ var threeD = {
 			var element = document.createElement( 'img' );
 			// element.width = 1026; // 2 pixels extra to close the gap.
 			element.src = side.url;
-			element.setAttribute('class', 'threeDimage');
 
 			var object = new THREE.CSS3DObject( element );
 

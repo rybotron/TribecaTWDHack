@@ -149,11 +149,3 @@ img.line-scene{
 	position: absolute;
 	bottom: 46px; /*63-17*/
 }
-
-.threeDimage{
-
--webkit-perspective: 1000;
-perspective: 10;
-
-
-}
