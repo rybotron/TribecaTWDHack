@@ -54,5 +54,33 @@ function camTweener( newCamPosition, newTarget, time ) {
 	tweenPosition.start();
 	Tweener( camTarget, newTarget, time );	
 }
+function moveToScene( scene, time ) {
 
+    threeD.ZOOM = 0;
+    Tweener( threeD.camera.position, {z:0}, (time/2)-1 );
+
+    switch(scene) {
+        case 1:
+            Tweener( threeD.camCTRL.rotation, {y:0}, time );
+            break;
+        case 2:
+            Tweener( threeD.camCTRL.rotation, {y:300 * (Math.PI / 180)}, time );
+            break;
+        case 3:
+            Tweener( threeD.camCTRL.rotation, {y:240 * (Math.PI / 180)}, time );
+            break;
+        case 4:
+            Tweener( threeD.camCTRL.rotation, {y:180 * (Math.PI / 180)}, time );
+            break;
+        case 5:
+            Tweener( threeD.camCTRL.rotation, {y:120 * (Math.PI / 180)}, time );
+            break;
+        case 6:
+            Tweener( threeD.camCTRL.rotation, {y:60 * (Math.PI / 180)}, time );
+            break;
+    }
+
+    setTimeout( function(){Tweener( threeD.camera.position, {z:-500}, (time/2) );}, (time/2) );
+    threeD.ZOOM = 1;
+}
 
