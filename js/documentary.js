@@ -1,5 +1,6 @@
 var documentary = {
 	popcorn: undefined,
+	sceneTransitionTime: 1, // Full seconds
 	setup: function (domConfig, library){
 		// Cannot Change!
 		var fakeVideo = Popcorn.HTMLNullVideoElement('#'+domConfig.containerId, {frameAnimation:true});
@@ -22,6 +23,12 @@ var documentary = {
 		for(var sceneIndex = 0; sceneIndex < library.scenes.length; sceneIndex++){
 			var indexedScene = library.scenes[sceneIndex];
 			this.createScene(indexedScene);
+			this.popcorn.scene({
+				sceneNumber: sceneIndex+1,
+				start: indexedScene.time,
+				end: indexedScene.time+indexedScene.duration,
+				scene: indexedScene
+			})
 		}
 	},
 	createScene: function (sceneJson){
@@ -30,12 +37,12 @@ var documentary = {
 			// Iterate through the set pieces and hand them to the resource handler.
 			for(var pieceIndex = 0; pieceIndex < sceneJson.pieces.length; pieceIndex++){
 				var indexedPiece = sceneJson.pieces[pieceIndex];
-				var pieceElement = this.createPiece(indexedPiece);
+				var pieceElement = this.createPiece(indexedPiece, sceneJson);
 				this.resourceHandler.handle(pieceElement, sceneJson, indexedPiece);
 			}
 		}
 	},
-	createPiece: function (pieceJson){
+	createPiece: function (pieceJson, sceneJson){
 		switch(pieceJson.type){
             case 'image':{
                 var pieceContainer = document.createElement('div');
@@ -53,6 +60,7 @@ var documentary = {
 
                 pieceContainer.style.background = 'blue'
 				pieceElement = document.createElement('video');
+				sceneJson.video = pieceElement;
 				pieceElement.setAttribute('controls', 'controls')
 				for(var key in pieceJson.source){
 					var sourceElement = document.createElement('source');
