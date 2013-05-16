@@ -122,6 +122,8 @@ var threeD = {
 		element.style.width = '1px';
 		element.style.height = '1px';
 		element.style.background = 'rgba(255,0,0,0.0)'//new THREE.Color( 0x000000 ).getStyle();
+
+		element.setAttribute('class', 'threeDimages');
 	
 		this.object = new THREE.CSS3DObject( element );
 		this.object.position.x = 0;
