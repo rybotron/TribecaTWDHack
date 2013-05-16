@@ -33,6 +33,19 @@ var controlBar = {
 			var clickPercent = relativeX / timeline.offsetWidth;
 			var timeStamp = documentary.popcorn.duration() * clickPercent;
 			documentary.popcorn.currentTime(timeStamp);
+			// find scene
+			var currentScene;
+			for(var sceneIndex = 0; sceneIndex < resourceLibrary.scenes.length; sceneIndex++){
+				var indexedScene = resourceLibrary.scenes[sceneIndex];
+				if(indexedScene.duration && indexedScene.time < timeStamp && timeStamp < indexedScene.time+indexedScene.duration){
+					currentScene = indexedScene;
+					break;
+				}
+			}
+			if(currentScene && currentScene.video){
+				var offsetTime = timeStamp - currentScene.time;
+				currentScene.video.currentTime = offsetTime;
+			}
 		});
 		this.mute = document.getElementById('mute');
 		this.mute.addEventListener('click', function (){
