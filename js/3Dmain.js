@@ -101,7 +101,7 @@ var threeD = {
 		//vector.getPositionFromMatrix( this.object.matrixWorld );
 		//sceneVector.sub( threeDObject.position );
 		//console.log(threeDObject.position)
-		threeDObject.rotation.y = Math.atan2( sceneVector.x, sceneVector.z);
+		threeDObject.rotation.y = Math.PI + Math.atan2( sceneVector.x, sceneVector.z);
 		//threeDObject.rotation.y = dir;
 		this.scene.add( threeDObject );
 	},
