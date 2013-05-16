@@ -53,7 +53,7 @@ var documentary = {
 
                 pieceContainer.style.background = 'blue'
 				pieceElement = document.createElement('video');
-				pieceElement.setAttribute('controls', 'controls')
+				// pieceElement.setAttribute('controls', 'controls')
 				for(var key in pieceJson.source){
 					var sourceElement = document.createElement('source');
 					sourceElement.setAttribute('src', pieceJson[key]);
