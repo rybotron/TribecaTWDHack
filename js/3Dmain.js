@@ -137,7 +137,7 @@ var threeD = {
 		// $contenttarget.append( distance );
 
 
-		var sideScale = 20;
+		var sideScale = 5;
 
 		var sides = [
 			{
@@ -195,7 +195,9 @@ var threeD = {
 
 			object.position = vec;
 			object.rotation = side.rotation;
-			object.scale = side.scale;
+			object.scale.x = side.scale.x;
+			object.scale.y = side.scale.y*.75;
+			object.scale.z = side.scale.z;
 
 			this.scene.add(object);
 
@@ -258,9 +260,9 @@ var threeD = {
 
         if (this.camMotion == true)
         {
-            var randY = Math.floor(Math.random() * 50) - 25;
-            var randX = Math.floor(Math.random() * 50) - 25;
-            var timeVal = Math.floor(Math.random() * 1500) + 4000;
+            var randY = Math.floor(Math.random() * 100) - 25;
+            var randX = Math.floor(Math.random() * 100) - 25;
+            var timeVal = Math.floor(Math.random() * 1500) + 5000;
 
             Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
 
