@@ -26,23 +26,7 @@ var threeD = {
 	object: undefined,
 
 
-	// horse: [
-	// 	{
-	// 		url: 'images/phantom/puppet_00000.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00001.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00002.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00003.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00004.png'
-	// 	},
-	// ],
+
 
 	arctan: function (x,y){
 		if(y>=0){
@@ -51,6 +35,7 @@ var threeD = {
 			return -Math.acos(x/Math.sqrt(x*x+y*y))
 		}
 	},
+
 	handle: function (htmlElement, sceneJson, pieceJson){
 		if(pieceJson.dimentions){
 			var pieceWidth = pieceJson.dimentions[0];
@@ -214,15 +199,7 @@ var threeD = {
 		skybox.rotation.y = 90 * Math.PI/180;
 		this.scene.add(skybox);
 
-		// var horseElement = document.createElement( 'img' );
-		// horseElement.width = 1026; // 2 pixels extra to close the gap.
-		// horseElement.src = this.horse[0].url;
-
-		// var horseObject = new THREE.CSS3DObject( horseElement );
-		// horseObject.position.set(0,0,-1000);
-		// horseObject.scale.set(.5,.5,.5);
-
-		// this.scene.add( horseObject );
+        animations.horsie();
 
 	
 		this.renderer = new THREE.CSS3DRenderer();
@@ -260,13 +237,17 @@ var threeD = {
         }
     },
     cameraMotion: function () {
-        if (this.MOUSEX < -200)
+        if (this.ZOOM == 0)
         {
-            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
-        }
-        if (this.MOUSEX > 200)
-        {
-            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+            if (this.MOUSEX < -200)
+            {
+                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
+            }
+            if (this.MOUSEX > 200)
+            {
+                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+            }
+
         }
 
         if (this.camMotion == true)
