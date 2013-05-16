@@ -3,7 +3,7 @@ var controlBar = {
 		var self = this;
 		var header = document.getElementById('header');
 		var content = document.getElementById('content');
-		var footer = document.getElementById('footer');
+		this.footer = document.getElementById('footer');
 		this.playHead = document.getElementById('play-head');
 		var timeline = document.getElementById('timeline');
 		this.timeline = timeline;
@@ -53,12 +53,41 @@ var controlBar = {
 			}
 		}
 	},
-	updateTime: function(timeCode){
+	updateTime: function (timeCode){
 		var timePercent = timeCode / documentary.popcorn.duration();
 		var totalWidth = this.timeline.offsetWidth;
 		this.playHead.style.left = (totalWidth*timePercent)+'px';
+	},
+	registerScene: function (sceneJson){
+		var timeCode = sceneJson.time;
+		var timePercent = timeCode / documentary.popcorn.duration();
+		var totalWidth = this.timeline.offsetWidth;
+		var offsetWidth = totalWidth*timePercent;
+		
+		var totalOffset = this.timeline.offsetLeft;
+		var offsetParent = this.timeline.offsetParent;
+		while(offsetParent){
+			totalOffset += offsetParent.offsetLeft;
+			offsetParent = offsetParent.offsetParent;
+		}
+		var relativeWidth = offsetWidth + totalOffset;
+		var sceneElement = document.createElement('div');
+		sceneElement.setAttribute('class', 'line-scene');
+		sceneElement.style.left = ''+relativeWidth+'px';
+		var titleSpan = document.createElement('span');
+		titleSpan.innerHTML = sceneJson.year + ':<br>' + sceneJson.title;
+		sceneElement.appendChild(titleSpan);
+		var nodeImg = document.createElement('img');
+		nodeImg.src = 'images/layout/sceneNode.png';
+		nodeImg.setAttribute('class', 'line-scene');
+		nodeImg.style.left = ''+Math.floor(relativeWidth-17)+'px';
+		nodeImg.addEventListener('mouseover', function (){
+			sceneElement.style.display = 'block';
+		});
+		nodeImg.addEventListener('mouseout', function (){
+			sceneElement.style.display = 'none';
+		});
+		this.footer.appendChild(nodeImg);
+		this.footer.appendChild(sceneElement);
 	}
 };
-document.addEventListener("DOMContentLoaded", function (){
-	controlBar.setup();
-});

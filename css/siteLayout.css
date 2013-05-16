@@ -83,3 +83,23 @@
 	left: 30px;
 	height: 68px;
 }
+div.line-scene{
+	display: none;
+	position: absolute;
+	left: 0px;
+	bottom: 63px;
+	height: 105px;
+	font-size: 24px;
+	color: white;
+	border-left:  1px solid rgba(255,255,255,0.4);
+	pointer-events: none;
+}
+div.line-scene span{
+	position: relative;
+	top:  -15px;
+	left:  5px;
+}
+img.line-scene{
+	position: absolute;
+	bottom: 46px; /*63-17*/
+}

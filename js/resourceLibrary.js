@@ -6,7 +6,7 @@ var resourceLibrary = {
 	scenes: [
 		// Example Scene:
 		//     {coords: [r, theta], pieces: [ ... ]},
-		{coords: [1200,0], pieces: [
+		{coords: [1200,0], time: 30, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
@@ -14,7 +14,7 @@ var resourceLibrary = {
 			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [-250,  50,  100]},
 			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
 		]},
-		{coords: [1200,60], pieces: [
+		{coords: [1200,60], time: 90, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/scene1/boybending.png', coords: [  -800,   0,  500], dimentions: [425, 823]},
@@ -26,7 +26,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene1/tents4.png', coords: [  0,   -10,  850], dimentions: [2000, 548]},
 			{type: 'image', source: 'images/scene1/tents5.png', coords: [  0,   -10,  850], dimentions: [2000, 540]}
 		]},
-		{coords: [1200,120], pieces: [
+		{coords: [1200,120], time: 120, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/scene2/arch.png', coords: [  -300,   0, -300]},
@@ -34,7 +34,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene2/buildings.png', coords: [  0,   300, 1], dimentions: [1024, 170]},
 
 		]},
-		{coords: [1200,180], pieces: [
+		{coords: [1200,180], time: 210, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
@@ -42,7 +42,7 @@ var resourceLibrary = {
 			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [250,  50,  100]},
 			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
 		]},
-		{coords: [1200,240], pieces: [
+		{coords: [1200,240], time: 270, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
@@ -50,7 +50,7 @@ var resourceLibrary = {
 			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [250,  50,  100]},
 			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]}
 		]},
-		{coords: [1200,300], pieces: [
+		{coords: [1200,300], time: 340, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'image', source: 'images/scene4/cityscape-collage-small.png', coords: [  0,   -10,   -650], dimentions: [1000, 119]},
