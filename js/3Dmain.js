@@ -43,14 +43,6 @@ var threeD = {
 	// 		url: 'images/phantom/puppet_00004.png'
 	// 	},
 	// ],
-
-	arctan: function (x,y){
-		if(y>=0){
-			return  Math.acos(x/Math.sqrt(x*x+y*y))
-		} else{
-			return -Math.acos(x/Math.sqrt(x*x+y*y))
-		}
-	},
 	handle: function (htmlElement, sceneJson, pieceJson){
 		if(pieceJson.dimentions){
 			var pieceWidth = pieceJson.dimentions[0];
@@ -78,7 +70,7 @@ var threeD = {
 			0                ,
 			Math.sin(dir)*mag,
 		];
-		var a = this.arctan(-pieceJson.coords[0], pieceJson.coords[2]);
+		var a = Math.atan2(-pieceJson.coords[0], pieceJson.coords[2]);
 		var b = a - (Math.PI/2 - dir);
 		var m = Math.sqrt(pieceJson.coords[0]*pieceJson.coords[0] + pieceJson.coords[2]*pieceJson.coords[2]);
 		var vOB = [sceneCoordsCartesian[0], sceneCoordsCartesian[2]];
@@ -96,12 +88,12 @@ var threeD = {
 		// threeDObject.scale.x = Math.random() + 0.5;
 		// threeDObject.scale.y = Math.random() + 0.5;
 		//////// ROTATE ON Y
-		var sceneVector = new THREE.Vector3(sceneCoordsCartesian[0], sceneCoordsCartesian[1], sceneCoordsCartesian[2]);
+		//var sceneVector = new THREE.Vector3(sceneCoordsCartesian[0], sceneCoordsCartesian[1], sceneCoordsCartesian[2]);
 		//var vector = new THREE.Vector3();
 		//vector.getPositionFromMatrix( this.object.matrixWorld );
 		//sceneVector.sub( threeDObject.position );
 		//console.log(threeDObject.position)
-		threeDObject.rotation.y = Math.atan2( sceneVector.x, sceneVector.z);
+		threeDObject.rotation.y = Math.PI+Math.atan2( sceneCoordsCartesian[0], sceneCoordsCartesian[2])
 		//threeDObject.rotation.y = dir;
 		this.scene.add( threeDObject );
 	},

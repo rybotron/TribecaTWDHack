@@ -2,7 +2,7 @@
  */
 var hexSize = 2000;
 var resourceLibrary = {
-	tourDuration: 1000, // Length of documentary, in seconds.
+	tourDuration: 125, // Length of documentary, in seconds.
 	scenes: [
 		// Example Scene:
 		//     {coords: [r, theta], pieces: [ ... ]},
