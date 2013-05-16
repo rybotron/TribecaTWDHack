@@ -15,7 +15,6 @@ var documentary = {
 		this.popcorn.on('timeupdate', function (event){
 			controlBar.updateTime(this.currentTime());
 		});
-		this.popcorn.scene({start: 50, end: 950});
 		var container = document.getElementById(domConfig.containerId);
 		controlBar.setup();
 		// Iterate through the scenes and populate the 3D world with set pieces.
