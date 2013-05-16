@@ -181,6 +181,7 @@ var threeD = {
 		];
 
 
+		var skybox = new THREE.Object3D();
 
 		for ( var i = 0; i < sides.length; i ++ ) {
 
@@ -199,12 +200,17 @@ var threeD = {
 			object.position = vec;
 			object.rotation = side.rotation;
 			object.scale.x = side.scale.x;
-			object.scale.y = side.scale.y*.75;
+			object.scale.y = side.scale.y * .75;
 			object.scale.z = side.scale.z;
 
-			this.scene.add(object);
+			skybox.add( object );
+
+			
 
 		}
+
+		skybox.rotation.y = 90 * Math.PI/180;
+		this.scene.add(skybox);
 
 		// var horseElement = document.createElement( 'img' );
 		// horseElement.width = 1026; // 2 pixels extra to close the gap.
