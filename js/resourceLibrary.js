@@ -22,15 +22,15 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene1/compressed/tents3.png', coords: [  650,   -100,  750], dimentions: [1974, 512]},
 			{type: 'image', source: 'images/scene1/compressed/tents2.png', coords: [  450,   -75,  1000], dimentions: [1974, 758]},
 		]},
-		{coords: [hexSize,120], duration: 50, time: 56, year: '1964', title: 'Artists Village', pieces: [
+		{coords: [hexSize,120], duration: 50, time: 56, year: '1964', title: 'Artists\' Village', pieces: [
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1964'], coords: [  -1000, -350, -20]},
-			{type: 'text', text: ['They petition the government to turn the Kathputli Colony into an artists village.',
-			'The call their dream village, Anangdram: \"The Joy Village.\"'], coords: [  0,   0, -200]},
-			{type: 'image', source: 'images/scene2/compressed/buildings.png', coords: [  -165,   -325, 1], dimentions: [800*1.35, 89*1.35]},
-			{type: 'image', source: 'images/scene1/compressed/drummer.png', coords: [  -800,   0,  400], dimentions: [392*.9, 800*.9]},
-			{type: 'image', source: 'images/scene2/compressed/arch.png', coords: [  500,   -50, 400], dimentions: [400*1.5, 520*1.5]},
-			{type: 'image', source: 'images/scene2/compressed/tents.png', coords: [  1000,   -300,  10]},
+			{type: 'text', text: ['They petition the government to turn the Kathputli Colony into an artists\' village.',
+			'They call their dream village Anangdram: \"The Joy Village.\"'], coords: [  0,   0, -200]},
+			{type: 'image', source: 'images/scene2/compressed/buildings.png', coords: [  -265,   -325, 1], dimentions: [800*1.35, 89*1.35]},
+			{type: 'image', source: 'images/scene1/compressed/drummer.png', coords: [  -1200,   0,  400], dimentions: [392*.9, 800*.9]},
+			{type: 'image', source: 'images/scene2/compressed/arch.png', coords: [  400,   -50,  600], dimentions: [400*1.5, 520*1.5]},
+			{type: 'image', source: 'images/scene2/compressed/tents.png', coords: [  -1000,   -50,  600], dimentions: [775, 474]},
 			{type: 'video', source: {mp4: 'video/bbc.mp4'}, coords: [ -200,  -100,  500 ], dimentions: [960, 540]}
 		]},
 		{coords: [hexSize,180], duration: 15, time: 109, year: '2011', title: 'Slum', pieces: [
