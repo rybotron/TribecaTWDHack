@@ -62,7 +62,7 @@ var documentary = {
 				sceneJson.video = pieceElement;
 				for(var key in pieceJson.source){
 					var sourceElement = document.createElement('source');
-					sourceElement.setAttribute('src', pieceJson[key]);
+					sourceElement.setAttribute('src', pieceJson.source[key]);
 					pieceElement.appendChild(sourceElement);
 				}
 				break;
