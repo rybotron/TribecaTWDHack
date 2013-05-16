@@ -137,7 +137,7 @@ var threeD = {
 		// $contenttarget.append( distance );
 
 
-		var sideScale = 5;
+		var sideScale = 10;
 
 		var sides = [
 			{

@@ -24,24 +24,14 @@ var resourceLibrary = {
 		{coords: [hexSize,60], time: 90, year: '19NN', title: 'Snails Invade Miami', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
-<<<<<<< HEAD
-			{type: 'image', source: 'images/scene1/compressed/tents4.png', coords: [  0,  -50,  10], dimentions: [2000, 548]},
-			{type: 'image', source: 'images/scene1/compressed/tents3.png', coords: [  0,   -50,  1000], dimentions: [1000, 512]},
-			{type: 'image', source: 'images/scene1/compressed/boybending.png', coords: [  -800,   0,  500], dimentions: [425, 823]},
-			{type: 'image', source: 'images/scene1/compressed/drummer.png', coords: [  -200,   0,  400], dimentions: [392, 800]},
-			{type: 'image', source: 'images/scene1/compressed/puppeteers.png', coords: [  200,   0,  300], dimentions: [545, 834]},
-=======
+
 			{type: 'date', text: ['1958'], coords: [  -500, -250, -600]},
-			{type: 'image', source: 'images/scene1/tents4.png', coords: [  0,  -100,  10], dimentions: [2000, 548]},
-			{type: 'image', source: 'images/scene1/tents3.png', coords: [  650,   -100,  750], dimentions: [1974, 512]},
-			{type: 'image', source: 'images/scene1/tents2.png', coords: [  450,   -75,  1000], dimentions: [1974, 758]},
+			{type: 'image', source: 'images/scene1/compressed/tents4.png', coords: [  0,  -100,  10], dimentions: [2000, 548]},
+			{type: 'image', source: 'images/scene1/compressed/tents3.png', coords: [  650,   -100,  750], dimentions: [1974, 512]},
+			{type: 'image', source: 'images/scene1/compressed/tents2.png', coords: [  450,   -75,  1000], dimentions: [1974, 758]},
 			// {type: 'image', source: 'images/scene1/boybending.png', coords: [  -800,   0,  500], dimentions: [425, 823]},
 			
 			// {type: 'image', source: 'images/scene1/puppeteers.png', coords: [  200,   0,  300], dimentions: [545, 834]},
-			
->>>>>>> 3d42c35c4c5d360770874c6837675954d3426c15
-			
-
 			// {type: 'image', source: 'images/scene1/tents5.png', coords: [  0,   -10,  850], dimentions: [2000, 540]}
 		]},
 		{coords: [hexSize,120], time: 120, year: '19NN', title: 'Snails Invade Miami', pieces: [
