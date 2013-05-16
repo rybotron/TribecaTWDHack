@@ -13,7 +13,7 @@ var threeD = {
 	VIEW_ANGLE: 45,
 	ASPECT: this.WIDTH / this.HEIGHT,
 	NEAR: .25,
-	FAR: 100000,
+	FAR: 500000,
 
     MOUSEX: 0,
     MOUSEY: 0,
@@ -127,41 +127,42 @@ var threeD = {
 
 
 		var sideScale = 10;
+		var sideSize = 600;
 
 		var sides = [
 			{
 				url: 'textures/skybox/skybox_06.png',
-				position: new THREE.Vector3( -512, 0, 0 ),
+				position: new THREE.Vector3( -sideSize, 0, 0 ),
 				rotation: new THREE.Vector3( 0, Math.PI / 2, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_04.png',
-				position: new THREE.Vector3( 512, 0, 0 ),
+				position: new THREE.Vector3( sideSize, 0, 0 ),
 				rotation: new THREE.Vector3( 0, -Math.PI / 2, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_02.png',
-				position: new THREE.Vector3( 0,  512, 0 ),
+				position: new THREE.Vector3( 0,  sideSize, 0 ),
 				rotation: new THREE.Vector3( Math.PI / 2, 0, Math.PI ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_09.png',
-				position: new THREE.Vector3( 0, -512, 0 ),
+				position: new THREE.Vector3( 0, -sideSize, 0 ),
 				rotation: new THREE.Vector3( - Math.PI / 2, 0, Math.PI ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_05.png',
-				position: new THREE.Vector3( 0, 0,  512 ),
+				position: new THREE.Vector3( 0, 0,  sideSize ),
 				rotation: new THREE.Vector3( 0, Math.PI, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_07.png',
-				position: new THREE.Vector3( 0, 0, -512 ),
+				position: new THREE.Vector3( 0, 0, -sideSize ),
 				rotation: new THREE.Vector3( 0, 0, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			}
@@ -180,6 +181,7 @@ var threeD = {
 			element.setAttribute('class', 'threeDimages');
 
 			var object = new THREE.CSS3DObject( element );
+			object.frustumCulled = false;
 
 			var vec = new THREE.Vector3();
 			vec.multiplyVectors( side.position, side.scale );
@@ -190,6 +192,7 @@ var threeD = {
 			object.scale.y = side.scale.y * .75;
 			object.scale.z = side.scale.z;
 
+			skybox.rotation.y = .5;
 			skybox.add( object );
 
 			
