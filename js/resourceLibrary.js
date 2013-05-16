@@ -1,6 +1,6 @@
 /* The Resources Library contains an ordered list of chapters.
  */
-var hexSize = 2000;
+var hexSize = 1500;
 var resourceLibrary = {
 	tourDuration: 1000, // Length of documentary, in seconds.
 	scenes: [
@@ -13,7 +13,7 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0, -100]},
 			{type: 'video', source: {mp4: 'video/Puran Interview ArtistBeg3.mp4'}, coords: [-250,  50,  100]},
 			{type: 'image', source: 'images/TWD_plxD-slum03.png', coords: [  0,   0,  300]},
-            {type: 'date', text: ['1958'], coords: [  -400, -250, -600]},
+            {type: 'date', text: ['1958'], coords: [  -400, -250, -10]},
             // {type: 'text', text: ['Enter Tent Camp'], coords: [  0, -150, -600]},
             {type: 'text', text: ['Proin ut risus massa, convallis pretium diam.', ' Sed et vehicula mauris. In auctor libero hendrerit dolor', ' rutrum vel feugiat nunc vehicula. In hac habitasse platea\n', ' dictumst. Aliquam bibendum laoreet dapibus. Nam lacinia ultrices\n', ' adipiscing. Duis fermentum sollicitudin dolor eu cursus. Donec'], coords: [  0,   0, -200]},
 			// {type: 'image', source: 'images/TWD_plxD-slum01.png', coords: [  0,   0, -300]},
