@@ -255,13 +255,16 @@ var threeD = {
         }
     },
     cameraMotion: function () {
-        if (this.MOUSEX < -200)
+        if (this.ZOOM == 0)
         {
-            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
-        }
-        if (this.MOUSEX > 200)
-        {
-            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+            if (this.MOUSEX < -200)
+            {
+                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
+            }
+            if (this.MOUSEX > 200)
+            {
+                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+            }
         }
 
         if (this.camMotion == true)
