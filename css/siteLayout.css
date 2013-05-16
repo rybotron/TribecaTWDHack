@@ -1,3 +1,8 @@
+body{
+
+	
+}
+
 a:link{
 	text-decoration:  none;
 	color: white;
@@ -174,6 +179,7 @@ img.line-scene{
 	bottom: 46px; /*63-17*/
 }
 .threeDimages{
+	opacity:0.2;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-ms-transform: rotateY(180deg);
@@ -183,6 +189,10 @@ img.line-scene{
 	-ms-backface-visibility:     hidden;
 
 	backface-visibility:hidden;
-	perspective:1000;
+
+	perspective:10000;
+	perspective-origin: 100% 100%;
+	-webkit-perspective:10000; /* Safari and Chrome */
+	-webkit-perspective-origin: 100% 100%; /* Safari and Chrome */
 
 }

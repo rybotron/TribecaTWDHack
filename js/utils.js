@@ -58,29 +58,72 @@ function moveToScene( scene, time ) {
 
     threeD.ZOOM = 0;
     Tweener( threeD.camera.position, {z:0}, (time/2)-1 );
+    var zoomAmount = -500;
 
     switch(scene) {
         case 1:
             Tweener( threeD.camCTRL.rotation, {y:0}, time );
+            threeD.currentScene = 1;
+            zoomAmount = -1500;
             break;
         case 2:
-            Tweener( threeD.camCTRL.rotation, {y:300 * (Math.PI / 180)}, time );
+            if ( threeD.currentScene < scene )
+            {
+                Tweener( threeD.camCTRL.rotation, {y:-60 * (Math.PI / 180)}, time );
+            }
+            else
+            {
+                Tweener( threeD.camCTRL.rotation, {y:300 * (Math.PI / 180)}, time );
+            }
+            threeD.currentScene = 2;
             break;
         case 3:
-            Tweener( threeD.camCTRL.rotation, {y:240 * (Math.PI / 180)}, time );
+            if ( threeD.currentScene < scene )
+            {
+                Tweener( threeD.camCTRL.rotation, {y:-120 * (Math.PI / 180)}, time );
+            }
+            else
+            {
+                Tweener( threeD.camCTRL.rotation, {y:240 * (Math.PI / 180)}, time );
+            }
+            threeD.currentScene = 3;
             break;
         case 4:
-            Tweener( threeD.camCTRL.rotation, {y:180 * (Math.PI / 180)}, time );
+            if ( threeD.currentScene < scene )
+            {
+                Tweener( threeD.camCTRL.rotation, {y:-180 * (Math.PI / 180)}, time );
+            }
+            else
+            {
+                Tweener( threeD.camCTRL.rotation, {y:180 * (Math.PI / 180)}, time );
+            }
+            threeD.currentScene = 4;
             break;
         case 5:
-            Tweener( threeD.camCTRL.rotation, {y:120 * (Math.PI / 180)}, time );
+            if ( threeD.currentScene < scene )
+            {
+                Tweener( threeD.camCTRL.rotation, {y:-240 * (Math.PI / 180)}, time );
+            }
+            else
+            {
+                Tweener( threeD.camCTRL.rotation, {y:120 * (Math.PI / 180)}, time );
+            }
+            threeD.currentScene = 5;
             break;
         case 6:
-            Tweener( threeD.camCTRL.rotation, {y:60 * (Math.PI / 180)}, time );
+            if ( threeD.currentScene < scene )
+            {
+                Tweener( threeD.camCTRL.rotation, {y:-300 * (Math.PI / 180)}, time );
+            }
+            else
+            {
+                Tweener( threeD.camCTRL.rotation, {y:60 * (Math.PI / 180)}, time );
+            }
+            threeD.currentScene = 6;
             break;
     }
 
-    setTimeout( function(){Tweener( threeD.camera.position, {z:-500}, (time/2) );}, (time/2) );
+    setTimeout( function(){Tweener( threeD.camera.position, {z:zoomAmount}, (time/2) );}, (time/2) );
     threeD.ZOOM = 1;
 }
 

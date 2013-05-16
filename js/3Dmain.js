@@ -127,7 +127,7 @@ var threeD = {
 
 
 		var sideScale = 10;
-		var sideSize = 600;
+		var sideSize = 536.7;
 
 		var sides = [
 			{
@@ -192,7 +192,7 @@ var threeD = {
 			object.scale.y = side.scale.y * .75;
 			object.scale.z = side.scale.z;
 
-			skybox.rotation.y = .5;
+			skybox.rotation.y = 0;
 			skybox.add( object );
 
 			
@@ -203,7 +203,7 @@ var threeD = {
 		this.scene.add(skybox);
 
         animations.horsie();
-        animations.firebreather();
+        // animations.firebreather();
 
 	
 		this.renderer = new THREE.CSS3DRenderer();
