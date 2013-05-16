@@ -36,17 +36,22 @@ var documentary = {
 		}
 	},
 	createPiece: function (pieceJson){
-		var pieceContainer = document.createElement('div');
-		pieceContainer.setAttribute('class', 'resource');
-		var pieceElement;
 		switch(pieceJson.type){
-			case 'image':{
+            case 'image':{
+                var pieceContainer = document.createElement('div');
+                pieceContainer.setAttribute('class', 'resource');
+                var pieceElement;
+
 				pieceElement = document.createElement('img');
 				pieceElement.setAttribute('src', pieceJson.source);
 				break;
 			}
 			case 'video':{
-				pieceContainer.style.background = 'blue'
+                var pieceContainer = document.createElement('div');
+                pieceContainer.setAttribute('class', 'resource');
+                var pieceElement;
+
+                pieceContainer.style.background = 'blue'
 				pieceElement = document.createElement('video');
 				pieceElement.setAttribute('controls', 'controls')
 				for(var key in pieceJson.source){
@@ -56,6 +61,54 @@ var documentary = {
 				}
 				break;
 			}
+            case 'text':{
+
+                var textContent = pieceJson.text;
+                var y = 0;
+
+                var html = '<ul>';
+                var pieceContainer = document.createElement('div');
+                var pieceElement;
+
+                pieceContainer.setAttribute('class', 'text')
+                pieceElement = document.createElement('div');
+                //pieceElement.innerText = item;
+
+                for ( var i = 0; i < textContent.length; i ++ ) {
+
+                    var item = textContent[ i ];
+
+                    html += '<li>'+item+'</li>';
+
+                }
+                html += '</ul>';
+                pieceElement.innerHTML = html;
+                break;
+            }
+            case 'date':{
+
+                var textContent = pieceJson.text;
+                var y = 0;
+
+                var html = '<ul>';
+                var pieceContainer = document.createElement('div');
+                var pieceElement;
+
+                pieceContainer.setAttribute('class', 'date')
+                pieceElement = document.createElement('div');
+                //pieceElement.innerText = item;
+
+                for ( var i = 0; i < textContent.length; i ++ ) {
+
+                    var item = textContent[ i ];
+
+                    html += '<li>'+item+'</li>';
+
+                }
+                html += '</ul>';
+                pieceElement.innerHTML = html;
+                break;
+            }
 		}
 		if(pieceElement){
 			pieceContainer.appendChild(pieceElement);

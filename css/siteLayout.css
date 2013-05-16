@@ -40,6 +40,52 @@
 	background-image: url('../images/layout/backgroundStripes.png');
 	opacity: 0.2;
 }
+.expander{
+	overflow: hidden;
+	height: auto;
+	/*transition: background 1s, height 1s, padding 1s;
+	-moz-transition: background 1s, height 1s, padding 1s;
+	-webkit-transition: background 1s, height 1s, padding 1s;
+	-o-transition: background 1s, height 1s, padding 1s;*/
+}
+.hidden > .expander{
+	height: 0em;
+	padding: 0em 1em;
+}
+.text{
+    color: white;
+    background-color: black;
+    /*margin-bottom: 10px;*/
+    /*border-color: black;*/
+    /*border-width: 10px;*/
+    font-size: 36px;
+}
+.date{
+    color: white;
+    /*margin-bottom: 10px;*/
+    /*border-color: black;*/
+    /*border-width: 10px;*/
+    font-size: 36px;
+}
+ul
+{
+    list-style-type: none;
+    list-style:none;
+    padding: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin: 0;
+    width:100%;
+    list-style: none;
+}
+li
+{
+    list-style-image: none;
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 0px solid transparent;
+}
 #control-bar, #control-bar-background{
 	position: absolute;
 	left: 5%;
