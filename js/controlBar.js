@@ -56,7 +56,9 @@ var controlBar = {
 	updateTime: function (timeCode){
 		var timePercent = timeCode / documentary.popcorn.duration();
 		var totalWidth = this.timeline.offsetWidth;
-		this.playHead.style.left = (totalWidth*timePercent)+'px';
+		var graphicWidth = this.playHead.offsetWidth;
+		var offsetX = Math.floor((totalWidth*timePercent)-(graphicWidth/2));
+		this.playHead.style.left = ''+offsetX+'px';
 	},
 	registerScene: function (sceneJson){
 		var timeCode = sceneJson.time;
@@ -89,5 +91,8 @@ var controlBar = {
 		});
 		this.footer.appendChild(nodeImg);
 		this.footer.appendChild(sceneElement);
+		nodeImg.addEventListener('mouseup', function (event){
+			documentary.popcorn.currentTime(timeCode);
+		});
 	}
 };

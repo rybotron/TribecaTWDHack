@@ -96,10 +96,12 @@ var threeD = {
 		// threeDObject.scale.x = Math.random() + 0.5;
 		// threeDObject.scale.y = Math.random() + 0.5;
 		//////// ROTATE ON Y
-		var vector = new THREE.Vector3();
-		vector.getPositionFromMatrix( this.object.matrixWorld );
-		vector.sub( threeDObject.position );
-		threeDObject.rotation.y = Math.atan2( vector.x, vector.z);
+		var sceneVector = new THREE.Vector3(sceneCoordsCartesian[0], sceneCoordsCartesian[1], sceneCoordsCartesian[2]);
+		//var vector = new THREE.Vector3();
+		//vector.getPositionFromMatrix( this.object.matrixWorld );
+		//sceneVector.sub( threeDObject.position );
+		//console.log(threeDObject.position)
+		threeDObject.rotation.y = Math.atan2( sceneVector.x, sceneVector.z);
 		//threeDObject.rotation.y = dir;
 		this.scene.add( threeDObject );
 	},
