@@ -41,6 +41,8 @@ a:link{
 	cursor: pointer;
 }
 #content{
+	
+	font-family: 'Roboto Slab', serif;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -88,50 +90,22 @@ a:link{
 }
 .text{
     color: white;
+    text-shadow:.1em .1em 4px #000;
     background-color: rgba(0,0,0,0.65);
-    /*margin-bottom: 10px;*/
-    /*border-color: black;*/
-    /*border-width: 10px;*/
-    font-size: 36px;
+    font-size: 24px;
 
-	-webkit-transform: rotateY(180deg);
-	-moz-transform: rotateY(180deg);
-	-ms-transform: rotateY(180deg);
+    padding:5px;
+    margin:10px;
 
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility:    hidden;
-	-ms-backface-visibility:     hidden;
-
-	backface-visibility:hidden;
 	perspective:1000;
 }
 .date{
+	text-shadow:.05em .05em 2px #000;
     color: white;
-    background-color: rgba(0,0,0,0.65);
-    /*margin-bottom: 10px;*/
-    /*border-color: black;*/
-    /*border-width: 10px;*/
-    font-size: 75px;
+    font-size: 125px;
+    font-weight:bold;
 }
-ul
-{
-    list-style-type: none;
-    list-style:none;
-    padding: 0;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    margin: 0;
-    width:100%;
-    list-style: none;
-}
-li
-{
-    list-style-image: none;
-    list-style-type: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 0px solid transparent;
-}
+
 #control-bar, #control-bar-background{
 	position: absolute;
 	left: 5%;

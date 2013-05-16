@@ -13,7 +13,7 @@ var threeD = {
 	VIEW_ANGLE: 45,
 	ASPECT: this.WIDTH / this.HEIGHT,
 	NEAR: .25,
-	FAR: 100000,
+	FAR: 500000,
 
     MOUSEX: 0,
     MOUSEY: 0,
@@ -26,23 +26,7 @@ var threeD = {
 	object: undefined,
 
 
-	// horse: [
-	// 	{
-	// 		url: 'images/phantom/puppet_00000.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00001.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00002.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00003.png'
-	// 	},
-	// 				{
-	// 		url: 'images/phantom/puppet_00004.png'
-	// 	},
-	// ],
+
 
 	arctan: function (x,y){
 		if(y>=0){
@@ -51,6 +35,7 @@ var threeD = {
 			return -Math.acos(x/Math.sqrt(x*x+y*y))
 		}
 	},
+
 	handle: function (htmlElement, sceneJson, pieceJson){
 		if(pieceJson.dimentions){
 			var pieceWidth = pieceJson.dimentions[0];
@@ -142,41 +127,42 @@ var threeD = {
 
 
 		var sideScale = 10;
+		var sideSize = 600;
 
 		var sides = [
 			{
 				url: 'textures/skybox/skybox_06.png',
-				position: new THREE.Vector3( -512, 0, 0 ),
+				position: new THREE.Vector3( -sideSize, 0, 0 ),
 				rotation: new THREE.Vector3( 0, Math.PI / 2, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_04.png',
-				position: new THREE.Vector3( 512, 0, 0 ),
+				position: new THREE.Vector3( sideSize, 0, 0 ),
 				rotation: new THREE.Vector3( 0, -Math.PI / 2, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_02.png',
-				position: new THREE.Vector3( 0,  512, 0 ),
+				position: new THREE.Vector3( 0,  sideSize, 0 ),
 				rotation: new THREE.Vector3( Math.PI / 2, 0, Math.PI ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_09.png',
-				position: new THREE.Vector3( 0, -512, 0 ),
+				position: new THREE.Vector3( 0, -sideSize, 0 ),
 				rotation: new THREE.Vector3( - Math.PI / 2, 0, Math.PI ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_05.png',
-				position: new THREE.Vector3( 0, 0,  512 ),
+				position: new THREE.Vector3( 0, 0,  sideSize ),
 				rotation: new THREE.Vector3( 0, Math.PI, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			},
 			{
 				url: 'textures/skybox/skybox_07.png',
-				position: new THREE.Vector3( 0, 0, -512 ),
+				position: new THREE.Vector3( 0, 0, -sideSize ),
 				rotation: new THREE.Vector3( 0, 0, 0 ),
 				scale: new THREE.Vector3( sideScale, sideScale, sideScale )
 			}
@@ -195,6 +181,7 @@ var threeD = {
 			element.setAttribute('class', 'threeDimages');
 
 			var object = new THREE.CSS3DObject( element );
+			object.frustumCulled = false;
 
 			var vec = new THREE.Vector3();
 			vec.multiplyVectors( side.position, side.scale );
@@ -205,6 +192,7 @@ var threeD = {
 			object.scale.y = side.scale.y * .75;
 			object.scale.z = side.scale.z;
 
+			skybox.rotation.y = .5;
 			skybox.add( object );
 
 			
@@ -214,15 +202,8 @@ var threeD = {
 		skybox.rotation.y = 90 * Math.PI/180;
 		this.scene.add(skybox);
 
-		// var horseElement = document.createElement( 'img' );
-		// horseElement.width = 1026; // 2 pixels extra to close the gap.
-		// horseElement.src = this.horse[0].url;
-
-		// var horseObject = new THREE.CSS3DObject( horseElement );
-		// horseObject.position.set(0,0,-1000);
-		// horseObject.scale.set(.5,.5,.5);
-
-		// this.scene.add( horseObject );
+        animations.horsie();
+        animations.firebreather();
 
 	
 		this.renderer = new THREE.CSS3DRenderer();
@@ -260,13 +241,17 @@ var threeD = {
         }
     },
     cameraMotion: function () {
-        if (this.MOUSEX < -200)
+        if (this.ZOOM == 0)
         {
-            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
-        }
-        if (this.MOUSEX > 200)
-        {
-            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+            if (this.MOUSEX < -200)
+            {
+                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
+            }
+            if (this.MOUSEX > 200)
+            {
+                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
+            }
+
         }
 
         if (this.camMotion == true)

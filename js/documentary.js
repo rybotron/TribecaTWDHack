@@ -72,23 +72,17 @@ var documentary = {
                 var textContent = pieceJson.text;
                 var y = 0;
 
-                var html = '<ul>';
+                var html = '';
                 var pieceContainer = document.createElement('div');
-                var pieceElement;
-
-                pieceContainer.setAttribute('class', 'text')
-                pieceElement = document.createElement('div');
-                //pieceElement.innerText = item;
 
                 for ( var i = 0; i < textContent.length; i ++ ) {
 
                     var item = textContent[ i ];
 
-                    html += '<li>'+item+'</li>';
+                    html += '<div class = "text">'+item+'</div>';
 
                 }
-                html += '</ul>';
-                pieceElement.innerHTML = html;
+                pieceContainer.innerHTML = html;
                 break;
             }
             case 'date':{
@@ -96,7 +90,7 @@ var documentary = {
                 var textContent = pieceJson.text;
                 var y = 0;
 
-                var html = '<ul>';
+                var html = '';
                 var pieceContainer = document.createElement('div');
                 var pieceElement;
 
@@ -108,10 +102,9 @@ var documentary = {
 
                     var item = textContent[ i ];
 
-                    html += '<li>'+item+'</li>';
+                    html += '<div>'+item+'</div>';
 
                 }
-                html += '</ul>';
                 pieceElement.innerHTML = html;
                 break;
             }
