@@ -15,6 +15,7 @@
 		
 		<script src="js/libs/popcorn-base.js"></script>
 		<script src="js/scenePlugin.js"></script>
+		<Script src="js/musicPlugin.js"></Script>
 		
 		<script src="js/libs/jquery-1.9.1.min.js"></script>
 
@@ -131,7 +132,16 @@
 			</div>
 		</div>
 	</footer>
-	
+	<div id="audio">
+		<audio id="audio1">
+			<source id="audio1Ogg" type="audio/ogg">
+			<source id="audio1Mpeg" type="audio/mpeg">
+		</audio>
+		<audio id="audio2">
+			<source id="audio2Ogg" type="audio/ogg">
+			<source id="audio2Mpeg" type="audio/mpeg">
+		</audio>
+	</div>
 	<script>
 		var htmlConfiguration = {
 			containerId: 'container',

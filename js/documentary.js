@@ -17,6 +17,7 @@ var documentary = {
 		});
 		var container = document.getElementById(domConfig.containerId);
 		controlBar.setup();
+		audioController.setup();
 		// Iterate through the scenes and populate the 3D world with set pieces.
 		this.resourceHandler = domConfig.resourceHandler;
 		for(var sceneIndex = 0; sceneIndex < library.scenes.length; sceneIndex++){

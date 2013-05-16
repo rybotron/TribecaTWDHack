@@ -1,5 +1,3 @@
-// PLUGIN: style
-
 (function (Popcorn) {
 	//"use strict";
 	//?
