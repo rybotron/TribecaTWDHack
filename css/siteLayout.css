@@ -49,3 +49,37 @@
 	height: 0em;
 	padding: 0em 1em;
 }
+.text{
+    color: white;
+    background-color: black;
+    /*margin-bottom: 10px;*/
+    /*border-color: black;*/
+    /*border-width: 10px;*/
+    font-size: 36px;
+}
+.date{
+    color: white;
+    /*margin-bottom: 10px;*/
+    /*border-color: black;*/
+    /*border-width: 10px;*/
+    font-size: 36px;
+}
+ul
+{
+    list-style-type: none;
+    list-style:none;
+    padding: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin: 0;
+    width:100%;
+    list-style: none;
+}
+li
+{
+    list-style-image: none;
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 0px solid transparent;
+}
