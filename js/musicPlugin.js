@@ -17,13 +17,10 @@ var audioController = {
 	},
 	setup: function (){
 		this.mainAudio.audioElement = document.getElementById('audio1');
-		this.mainAudio.oggElement = document.getElementById('audio1Ogg');
-		this.mainAudio.mpegElement = document.getElementById('audio1Mpeg');
 		this.crossFade.audioElement = document.getElementById('audio2');
-		this.crossFade.oggElement = document.getElementById('audio2Ogg');
-		this.crossFade.mpegElement = document.getElementById('audio2Mpeg');
 	},
 	playAudio: function (sources){
+		return;
 		var mpeg;
 		var ogg;
 		if(sources){
@@ -31,25 +28,31 @@ var audioController = {
 			ogg = sources.ogg;
 		} else{
 			this.mainAudio.audioElement.pause();
-			this.mainAudio.audioElement.currentTime(0);
+			//this.mainAudio.audioElement.currentTime = 0;
 			this.crossFade.audioElement.pause();
-			this.crossFade.audioElement.currentTime(0);
+			//this.crossFade.audioElement.currentTime = 0;
 		}
-		if(mpeg == mainAudio.mpeg && ogg == mainAudio.ogg){
+		if(mpeg == this.mainAudio.mpeg && ogg == this.mainAudio.ogg){
 			return;
 		}
-		this.crossFade.mpeg = mpeg;
-		this.crossFade.ogg = ogg;
-		this.crossFade.mpegElement.src = mpeg;
-		this.crossFade.oggElement.src = ogg;
+		this.crossFade.oggElement = document.createElement('source')
+		this.crossFade.oggElement.setAttribute('type', 'audio/ogg');
+		this.crossFade.oggElement.setAttribute('src', ogg)
+		this.crossFade.mpegElement = document.createElement('source')
+		this.crossFade.mpegElement.setAttribute('type', 'audio/ogg');
+		this.crossFade.mpegElement.setAttribute('src', ogg)
+		this.crossFade.audioElement.innerHTML = '';
+		this.crossFade.audioElement.appendChild(this.crossFade.oggElement);
+		this.crossFade.audioElement.appendChild(this.crossFade.mpegElement);
 		this.crossFade.audioElement.play();
 		var oldMain = this.mainAudio;
 		this.mainAudio = this.crossFade;
 		this.crossFade = oldMain;
-		this.crossFade.pause();
+		//this.crossFade.audioElement.pause();
+		
 	}
-}/*
-(function (Popcorn) {
+}
+var error_object_is_not_a_function = function (Popcorn) {
 	//"use strict";
 	//?
 	Popcorn.basePlugin('audio', function (options, base) {
@@ -61,7 +64,6 @@ var audioController = {
 		We don't even need to specify start/frame/end/_teardown methods here,
 		since base.animate takes care of all that for us.
 		*/
-		/*
 		return {
 			start: function (event){
 				var timeStamp = documentary.popcorn.currentTime();
@@ -73,7 +75,7 @@ var audioController = {
 						sceneJson.video.play();
 					}, transitionTime);
 				}*/
-/*			},
+			},
 			end: function (event){
 			},
 			frame: function (event){
@@ -87,5 +89,5 @@ var audioController = {
 			website: 'http://github.com/jacobabrennan'
 		}
 	});
-}(Popcorn));
-*/
+}
+error_object_is_not_a_function(Popcorn);

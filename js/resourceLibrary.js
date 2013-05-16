@@ -6,7 +6,7 @@ var resourceLibrary = {
 	scenes: [
 		// Example Scene:
 		//     {coords: [r, theta], pieces: [ ... ]},
-		{coords: [hexSize,0], duration: 40, time: 0, year: '19NN', title: 'Introduction', pieces: [
+		{coords: [hexSize,0], duration: 40, time: 2, year: '19NN', title: 'Introduction', pieces: [
 			// Example set piece:
 			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
             {type: 'video', source: {mp4: 'video/intro.mp4'}, coords: [ 0,  0,  100 ], dimentions: [960, 540]},
