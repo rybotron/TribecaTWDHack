@@ -48,7 +48,6 @@ var threeD = {
 			var pieceOpacity = pieceJson.opacity;
 			if(pieceOpacity !== undefined){
 				htmlElement.style.opacity = ''+pieceOpacity;
-				console.log(pieceOpacity);
 			}
 		}
 
@@ -230,7 +229,6 @@ var threeD = {
             var randY = Math.floor(Math.random() * 50) - 25;
             var randX = Math.floor(Math.random() * 50) - 25;
             var timeVal = Math.floor(Math.random() * 1500) + 4000;
-            console.log(timeVal);
 
             Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
 

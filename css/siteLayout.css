@@ -40,14 +40,15 @@
 	background-image: url('../images/layout/backgroundStripes.png');
 	opacity: 0.2;
 }
-#control-bar{
+#control-bar, #control-bar-background{
 	position: absolute;
 	left: 5%;
 	bottom: 29px;
 	height: 68px;
-	background: magenta;
-	background: #111111;
 	width: 90%;
+}
+#control-bar-background{
+	background: #111111;
 }
 #play{
 	position:  absolute;
@@ -62,6 +63,13 @@
 	top: 0px;
 	left: 86px;
 	background-image: url('../images/layout/progressBar.png');
+}
+#play-head{
+	height: 68px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	pointer-events: none;
 }
 #future{
 	position: absolute;
