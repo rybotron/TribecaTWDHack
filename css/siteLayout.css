@@ -1,10 +1,44 @@
+a:link{
+	text-decoration:  none;
+	color: white;
+}
 #header{
-	width: 90%;
+	width: 100%;
 	position: absolute;
 	top: 0%;
-	left: 5%;
+	left: 0%;
 	z-index: 1;
 	padding: 0em;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size:  20px;
+}
+#home-button{
+	position:  absolute;
+	left: 0px;
+	top: 0px;
+	background:  black;
+	font-size:  48px;
+	padding: 0px 10px;
+}
+#social-mute{
+	position: absolute;
+	right:  0px;
+	top:  0px;
+	height:  28px;
+	line-height:  28px;
+	vertical-align: middle;
+	padding: 10px;
+}
+#social-mute a{
+	padding: 0px 10px;
+	border-right: solid 1px rgba(255,255,255,0.6);
+}
+#mute{
+	vertical-align: middle;
+	padding: 0px 10px;
+	cursor: pointer;
 }
 #content{
 	height: 100%;

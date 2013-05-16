@@ -1,6 +1,6 @@
 var documentary = {
 	popcorn: undefined,
-	sceneTransitionTime: 1, // Full seconds
+	sceneTransitionTime: 2, // Full seconds
 	setup: function (domConfig, library){
 		// Cannot Change!
 		var fakeVideo = Popcorn.HTMLNullVideoElement('#'+domConfig.containerId, {frameAnimation:true});

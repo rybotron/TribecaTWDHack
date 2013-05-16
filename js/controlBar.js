@@ -1,4 +1,5 @@
 var controlBar = {
+	muted: false,
 	setup: function (){
 		var self = this;
 		var header = document.getElementById('header');
@@ -33,10 +34,44 @@ var controlBar = {
 			var timeStamp = documentary.popcorn.duration() * clickPercent;
 			documentary.popcorn.currentTime(timeStamp);
 		});
-		
+		this.mute = document.getElementById('mute');
+		this.mute.addEventListener('click', function (){
+			self.toggleMute();
+		});
 	},
 	reposition: function (){
 		this.timeline.style.width = '' + (this.timeline.offsetParent.offsetWidth - this.timeline.offsetLeft - 20) + 'px';
+	},
+	toggleMute: function (state){
+		if(!state){
+			state = this.muted? false : true;
+		}
+		var videoList = document.body.getElementsByTagName('video');
+		var audioList = document.body.getElementsByTagName('audio');
+		switch(state){
+			case true:{
+				this.muted = state;
+				this.mute.src = 'images/layout/speakerMuted.png';
+				break;
+			}
+			case false:{
+				this.muted = state;
+				this.mute.src = 'images/layout/speaker.png';
+				break;
+			}
+		}
+		for(var vidIndex = 0; vidIndex < videoList.length; vidIndex++){
+			var indexedVid = videoList[vidIndex];
+			indexedVid.muted = state;
+		}
+		for(var audIndex = 0; audIndex < audioList.length; audIndex++){
+			var indexedAud = audioList[audIndex];
+			if(state){
+				indexedAud.pause();
+			} else{
+				indexedAud.play();
+			}
+		}
 	},
 	togglePlay: function (state){
 		if(!state){

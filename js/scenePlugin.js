@@ -25,10 +25,8 @@
 				}
 			},
 			end: function (event){
-				console.log('ended');
 			},
 			frame: function (event){
-				console.log('frame')
 			}
 		}
 	}, {
