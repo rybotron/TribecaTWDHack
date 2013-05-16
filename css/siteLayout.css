@@ -89,6 +89,10 @@ a:link{
 	padding: 0em 1em;
 }
 .text{
+
+	backface-visibility:hidden;
+	perspective:1000;
+
     color: white;
     text-shadow:.1em .1em 4px #000;
     background-color: rgba(0,0,0,0.65);

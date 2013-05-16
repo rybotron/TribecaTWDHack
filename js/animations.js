@@ -25,8 +25,8 @@ var animations = {
         horseElement.src = horse[horseImg].url;
 
         var horseObject = new THREE.CSS3DObject( horseElement );
-        horseObject.position.set(-750,0,-2000);
-        // horseObject.rotation.y = 90 * Math.PI/180;
+        horseObject.position.set(900,0,-2000);
+        horseObject.rotation.y = -10 * Math.PI/180;
         horseObject.scale.set(.5,.5,.5);
         var delayInSeconds = 4;
 
