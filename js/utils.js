@@ -58,11 +58,13 @@ function moveToScene( scene, time ) {
 
     threeD.ZOOM = 0;
     Tweener( threeD.camera.position, {z:0}, (time/2)-1 );
+    var zoomAmount = -500;
 
     switch(scene) {
         case 1:
             Tweener( threeD.camCTRL.rotation, {y:0}, time );
             threeD.currentScene = 1;
+            zoomAmount = -1500;
             break;
         case 2:
             if ( threeD.currentScene < scene )
@@ -121,7 +123,7 @@ function moveToScene( scene, time ) {
             break;
     }
 
-    setTimeout( function(){Tweener( threeD.camera.position, {z:-500}, (time/2) );}, (time/2) );
+    setTimeout( function(){Tweener( threeD.camera.position, {z:zoomAmount}, (time/2) );}, (time/2) );
     threeD.ZOOM = 1;
 }
 

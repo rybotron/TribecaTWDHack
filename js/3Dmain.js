@@ -202,7 +202,7 @@ var threeD = {
 		skybox.rotation.y = 90 * Math.PI/180;
 		this.scene.add(skybox);
 
-        // animations.horsie();
+        animations.horsie();
         // animations.firebreather();
 
 	
