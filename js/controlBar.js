@@ -21,6 +21,12 @@ var controlBar = {
 		})
 		documentary.popcorn.on('pause', function (event){
 			controlBar.play.src = 'images/layout/play.png';
+			for(var sceneIndex = 0; sceneIndex < resourceLibrary.scenes.length; sceneIndex++){
+				var indexedScene = resourceLibrary.scenes[sceneIndex];
+				if(indexedScene.video){
+					indexedScene.video.pause();
+				}
+			}
 		});
 		timeline.addEventListener('mouseup', function (event){
 			var totalOffset = timeline.offsetLeft;
