@@ -59,13 +59,24 @@
     /*border-color: black;*/
     /*border-width: 10px;*/
     font-size: 36px;
+
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+
+	backface-visibility:hidden;
+	perspective:1000;
 }
 .date{
     color: white;
     /*margin-bottom: 10px;*/
     /*border-color: black;*/
     /*border-width: 10px;*/
-    font-size: 36px;
+    font-size: 75px;
 }
 ul
 {
@@ -148,4 +159,17 @@ div.line-scene span{
 img.line-scene{
 	position: absolute;
 	bottom: 46px; /*63-17*/
+}
+.threeDimages{
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+
+	backface-visibility:hidden;
+	perspective:1000;
+
 }

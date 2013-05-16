@@ -109,6 +109,8 @@ var threeD = {
         this.scene = new THREE.Scene();
         this.camCTRL = new THREE.Object3D;
 
+        this.camCTRL.position.set(0,-100,0);
+
 		this.camera = new THREE.PerspectiveCamera( this.VIEW_ANGLE, this.ASPECT, this.NEAR, this.FAR );
 		this.camera.position.set( 0, 0, -1 );
 
@@ -122,6 +124,8 @@ var threeD = {
 		element.style.width = '1px';
 		element.style.height = '1px';
 		element.style.background = 'rgba(255,0,0,0.0)'//new THREE.Color( 0x000000 ).getStyle();
+
+		element.setAttribute('class', 'threeDimages');
 	
 		this.object = new THREE.CSS3DObject( element );
 		this.object.position.x = 0;
@@ -188,6 +192,7 @@ var threeD = {
 			var element = document.createElement( 'img' );
 			// element.width = 1026; // 2 pixels extra to close the gap.
 			element.src = side.url;
+			element.setAttribute('class', 'threeDimages');
 
 			var object = new THREE.CSS3DObject( element );
 
@@ -255,16 +260,13 @@ var threeD = {
         }
     },
     cameraMotion: function () {
-        if (this.ZOOM == 0)
+        if (this.MOUSEX < -200)
         {
-            if (this.MOUSEX < -200)
-            {
-                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
-            }
-            if (this.MOUSEX > 200)
-            {
-                this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
-            }
+            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX+200) ) - this.camCTRL.position.x ) *.001;
+        }
+        if (this.MOUSEX > 200)
+        {
+            this.camCTRL.rotation.y -= ( ((Math.PI / 180) * (this.MOUSEX-200) ) - this.camCTRL.position.x ) *.001;
         }
 
         if (this.camMotion == true)
