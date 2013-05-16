@@ -200,6 +200,7 @@ var threeD = {
 		this.scene.add(skybox);
 
         animations.horsie();
+        animations.firebreather();
 
 	
 		this.renderer = new THREE.CSS3DRenderer();
