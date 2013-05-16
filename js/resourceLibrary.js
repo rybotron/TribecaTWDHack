@@ -39,9 +39,9 @@ var resourceLibrary = {
 			{type: 'date', text: ['2011'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['The government never gave the artists the rights to the land.',
 			'It has become a slum.'], coords: [  0,   0, -200]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0, -1300]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0, -1100]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  -700]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0,  -1300], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0,  -1100], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  -700], dimentions: [1000, 512]}
 		]},
 		{coords: [hexSize,240], duration: 15, time: 127, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
 			// Example set piece:
