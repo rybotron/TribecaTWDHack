@@ -25,6 +25,25 @@ var threeD = {
 	controls: undefined,
 	object: undefined,
 
+
+	// horse: [
+	// 	{
+	// 		url: 'images/phantom/puppet_00000.png'
+	// 	},
+	// 				{
+	// 		url: 'images/phantom/puppet_00001.png'
+	// 	},
+	// 				{
+	// 		url: 'images/phantom/puppet_00002.png'
+	// 	},
+	// 				{
+	// 		url: 'images/phantom/puppet_00003.png'
+	// 	},
+	// 				{
+	// 		url: 'images/phantom/puppet_00004.png'
+	// 	},
+	// ],
+
 	arctan: function (x,y){
 		if(y>=0){
 			return  Math.acos(x/Math.sqrt(x*x+y*y))
@@ -48,7 +67,6 @@ var threeD = {
 			var pieceOpacity = pieceJson.opacity;
 			if(pieceOpacity !== undefined){
 				htmlElement.style.opacity = ''+pieceOpacity;
-				console.log(pieceOpacity);
 			}
 		}
 
@@ -74,6 +92,7 @@ var threeD = {
 		threeDObject.position.x = vOQ[0];
 		threeDObject.position.y = pieceJson.coords[1];
 		threeDObject.position.z = vOQ[1];
+
 		// threeDObject.scale.x = Math.random() + 0.5;
 		// threeDObject.scale.y = Math.random() + 0.5;
 		//////// ROTATE ON Y
@@ -158,12 +177,13 @@ var threeD = {
 		];
 
 
+
 		for ( var i = 0; i < sides.length; i ++ ) {
 
 			var side = sides[ i ];
 
 			var element = document.createElement( 'img' );
-			element.width = 1026; // 2 pixels extra to close the gap.
+			// element.width = 1026; // 2 pixels extra to close the gap.
 			element.src = side.url;
 
 			var object = new THREE.CSS3DObject( element );
@@ -178,7 +198,16 @@ var threeD = {
 			this.scene.add(object);
 
 		}
-		
+
+		// var horseElement = document.createElement( 'img' );
+		// horseElement.width = 1026; // 2 pixels extra to close the gap.
+		// horseElement.src = this.horse[0].url;
+
+		// var horseObject = new THREE.CSS3DObject( horseElement );
+		// horseObject.position.set(0,0,-1000);
+		// horseObject.scale.set(.5,.5,.5);
+
+		// this.scene.add( horseObject );
 
 	
 		this.renderer = new THREE.CSS3DRenderer();
@@ -230,7 +259,6 @@ var threeD = {
             var randY = Math.floor(Math.random() * 50) - 25;
             var randX = Math.floor(Math.random() * 50) - 25;
             var timeVal = Math.floor(Math.random() * 1500) + 4000;
-            //console.log(timeVal);
 
             Tweener( this.camera.position, {y:randY, x:randX}, timeVal);
 
