@@ -149,3 +149,10 @@ img.line-scene{
 	position: absolute;
 	bottom: 46px; /*63-17*/
 }
+
+#threeDimage{
+
+-webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+
+}
