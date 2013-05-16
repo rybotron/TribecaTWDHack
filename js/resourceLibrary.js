@@ -2,7 +2,7 @@ var hexSize = 2500;
 var resourceLibrary = {
 	tourDuration: 155, // Length of documentary, in seconds.
 	scenes: [
-		{coords: [hexSize,0], duration: 40, time: 2, year: '19NN', title: 'Introduction', pieces: [
+		{coords: [hexSize,0], duration: 40, time: 2, title: 'Introduction', pieces: [
             {type: 'video', source: {mp4: 'video/intro.mp4'}, coords: [ 0,  0,  100 ], dimentions: [960, 540]},
 		]},
 		{coords: [hexSize,60], duration: 10, time: 43, year: '1950', title: 'Tent Camp', audio: {ogg: 'audio/music1.ogg', mpeg: 'audio/music1.mp3'}, pieces: [
@@ -27,10 +27,10 @@ var resourceLibrary = {
 		{coords: [hexSize,180], duration: 15, time: 109, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
 			{type: 'date', text: ['2011'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['The government never gave the artists the rights to the land.',
-			'It has become a slum.'], coords: [  0,   0, -20]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0,  10], dimentions: [1000*2, 512*2]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0,  200], dimentions: [1000*2, 512*2]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  700], dimentions: [1000*2, 512*2]}
+			'It has become a slum.'], coords: [  0,   0, -200]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0,  -1300], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0,  -1100], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  -700], dimentions: [1000, 512]}
 		]},
 		{coords: [hexSize,240], duration: 15, time: 127, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
 			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},

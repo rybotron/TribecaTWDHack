@@ -112,7 +112,7 @@ var controlBar = {
 		sceneElement.setAttribute('class', 'line-scene');
 		sceneElement.style.left = ''+relativeWidth+'px';
 		var titleSpan = document.createElement('span');
-		titleSpan.innerHTML = sceneJson.year + ':<br>' + sceneJson.title;
+		titleSpan.innerHTML = (sceneJson.year? (sceneJson.year + ':<br>'): '') + sceneJson.title;
 		sceneElement.appendChild(titleSpan);
 		var nodeImg = document.createElement('img');
 		nodeImg.src = 'images/layout/sceneNode.png';
