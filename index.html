@@ -109,20 +109,29 @@
                 var takeAction = document.getElementById("take-action");
                 takeAction.onclick = function()
                 {
-                    threeD.camCTRL.position.y =3000;
-                    threeD.camCTRL.position.z=-7000;
-                    threeD.camCTRL.rotation.y=180 * (Math.PI / 180 );
-                    threeD.camera.rotation.x = -30 * (Math.PI/180);
+                    //THREE.removeAll();
+                    Tweener( threeD.camCTRL.position, {y:3000}, 5000);
+                    //threeD.camCTRL.position.y =3000;
+                    Tweener( threeD.camCTRL.position, {z:-7000}, 5000);
+                    //threeD.camCTRL.position.z=-7000;
+                    Tweener( threeD.camCTRL.rotation, {y:180 * (Math.PI / 180 )}, 5000);
+                    //threeD.camCTRL.rotation.y=180 * (Math.PI / 180 );
+                    Tweener( threeD.camera.rotation, {x:-30 * (Math.PI / 180 )}, 5000);
+                    //threeD.camera.rotation.x = -30 * (Math.PI/180);
                     threeD.ZOOM = 1;
                     return false;
                 }
                 var share = document.getElementById("share");
                 share.onclick = function()
                 {
-                    threeD.camCTRL.position.y =0;
-                    threeD.camCTRL.position.z=-1;
-                    threeD.camera.rotation.x = 0 * (Math.PI/180);
-                    threeD.camCTRL.rotation.y = 0;
+                    //THREE.removeAll();
+                    Tweener( threeD.camCTRL.position, {y:0}, 3000);
+                    //threeD.camCTRL.position.y =3000;
+                    Tweener( threeD.camCTRL.position, {z:-1}, 3000);
+                    //threeD.camCTRL.position.z=-7000;
+                    Tweener( threeD.camCTRL.rotation, {y:0}, 3000);
+                    //threeD.camCTRL.rotation.y=180 * (Math.PI / 180 );
+                    Tweener( threeD.camera.rotation, {x:0}, 3000);
                     threeD.ZOOM = 0;
                     return false;
                 }
