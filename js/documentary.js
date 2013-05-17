@@ -29,13 +29,13 @@ var documentary = {
 				start: indexedScene.time,
 				end: indexedScene.time+indexedScene.duration,
 				scene: indexedScene
-			});
+			});/*
 			this.popcorn.audio({
 				sceneNumber: sceneIndex+1,
 				start: indexedScene.time,
 				end: indexedScene.time+indexedScene.duration,
 				scene: indexedScene
-			});
+			});*/
 		}
 	},
 	createScene: function (sceneJson){

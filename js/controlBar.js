@@ -31,6 +31,7 @@ var controlBar = {
 					indexedScene.video.pause();
 				}
 			}
+			audioController.pause();
 		});
 		timeline.addEventListener('mouseup', function (event){
 			var totalOffset = timeline.offsetLeft;
@@ -69,13 +70,13 @@ var controlBar = {
 				this.muted = state;
 				this.mute.src = 'images/layout/speakerMuted.png';
 				break;
-			}
+			} 
 			case false:{
 				this.muted = state;
 				this.mute.src = 'images/layout/speaker.png';
 				break;
 			}
-		}
+		} 
 		for(var vidIndex = 0; vidIndex < videoList.length; vidIndex++){
 			var indexedVid = videoList[vidIndex];
 			indexedVid.muted = state;
@@ -85,7 +86,7 @@ var controlBar = {
 			if(state){
 				indexedAud.pause();
 			} else{
-				indexedAud.play();
+				//indexedAud.play();
 			}
 		}
 	},

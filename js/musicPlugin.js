@@ -1,17 +1,17 @@
 var audioController = {
 	elements: [],
 	intervals: [
-		{start: 0, end: 0},
-		{start: 0, end: 0},
-		{start: 0, end: 0},
-		{start: 0, end: 0},
+		{start: 43, end: 55},
+		{start: 56, end: 108},
+		{start: 109, end: 144},
+		{start: 145, end: 160},
 	],
 	currentIndex: undefined,
 	setup: function (){
-		this.elements[0] = getElementById('audio1');
-		this.elements[1] = getElementById('audio2');
-		this.elements[2] = getElementById('audio3');
-		this.elements[3] = getElementById('audio4');
+		this.elements[0] = document.getElementById('audio1');
+		this.elements[1] = document.getElementById('audio2');
+		this.elements[2] = document.getElementById('audio3');
+		this.elements[3] = document.getElementById('audio4');
 		this.elements[0].volume = 0.15;
 		this.elements[1].volume = 0.15;
 		this.elements[2].volume = 0.15;
@@ -20,12 +20,12 @@ var audioController = {
 	time: function (timeStamp){
 		var oldElement;
 		var currentElement;
-		if(this.currentIndex){
+		if(this.currentIndex !== undefined){
 			var currentInterval = this.intervals[this.currentIndex];
 			if(currentInterval.start < timeStamp && currentInterval.end > timeStamp){
-				currentElement = this.elements[currentInterval];
+				currentElement = this.elements[this.currentIndex];
 			} else{
-				oldElement = this.elements[this.currentIndex]
+				oldElement = this.elements[this.currentIndex];
 			}
 		}
 		if(!currentElement){
@@ -33,14 +33,24 @@ var audioController = {
 				var indexedInterval = this.intervals[intervalIndex];
 				if(indexedInterval.start < timeStamp && indexedInterval.end > timeStamp){
 					currentElement = this.elements[intervalIndex];
+					this.currentIndex = intervalIndex;
+					break;
 				}
 			}
 		}
 		if(currentElement){
 			currentElement.play()
+		} else{
+			this.currentIndex = undefined;
 		}
 		if(oldElement){
 			oldElement.pause()
+		}
+	},
+	pause: function (){
+		if(this.currentIndex !== undefined){
+			var currentElement = this.elements[this.currentIndex];
+			currentElement.pause();
 		}
 	}
 }
