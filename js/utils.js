@@ -85,7 +85,7 @@ function moveToScene( scene, time ) {
             { deg = 0}
             //deg = 0;
             threeD.currentScene = 1;
-            zoomAmount = -1500;
+            zoomAmount = -1800;
             break;
         case 2:
             deg = 300;
