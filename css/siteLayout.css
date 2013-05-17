@@ -184,6 +184,7 @@ img.line-scene{
 }
 .threeDimages{
 	opacity:.25;
+	-webkit-transform-style: preserve-3d;
 	-webkit-transform: rotateY(180deg);
 	-moz-transform: rotateY(180deg);
 	-ms-transform: rotateY(180deg);
@@ -192,6 +193,7 @@ img.line-scene{
 	-moz-backface-visibility:    hidden;
 	-ms-backface-visibility:     hidden;
 
+	transform-style: preserve-3d;
 	backface-visibility:hidden;
 	perspective:1000;
 
