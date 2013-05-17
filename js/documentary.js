@@ -120,6 +120,18 @@ var documentary = {
 			pieceContainer.appendChild(pieceElement);
 		}
 		return pieceContainer;
+	},
+	currentScene: function (){
+		var timeStamp = documentary.popcorn.currentTime();
+		var currentScene;
+		for(var sceneIndex = 0; sceneIndex < resourceLibrary.scenes.length; sceneIndex++){
+			var indexedScene = resourceLibrary.scenes[sceneIndex];
+			if(indexedScene.duration && indexedScene.time < timeStamp && timeStamp < indexedScene.time+indexedScene.duration){
+				currentScene = indexedScene;
+				break;
+			}
+		}
+		return currentScene;
 	}
 }
 document.addEventListener("DOMContentLoaded", function (){

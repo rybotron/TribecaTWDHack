@@ -18,9 +18,19 @@ var controlBar = {
 		});
 		documentary.popcorn.on('play', function (event){
 			controlBar.play.src = 'images/layout/pause.png';
+			var currentScene = documentary.currentScene()
+			if(currentScene && currentScene.video){
+				currentScene.video.play();
+			}
 		})
 		documentary.popcorn.on('pause', function (event){
 			controlBar.play.src = 'images/layout/play.png';
+			for(var sceneIndex = 0; sceneIndex < resourceLibrary.scenes.length; sceneIndex++){
+				var indexedScene = resourceLibrary.scenes[sceneIndex];
+				if(indexedScene.video){
+					indexedScene.video.pause();
+				}
+			}
 		});
 		timeline.addEventListener('mouseup', function (event){
 			var totalOffset = timeline.offsetLeft;
@@ -31,8 +41,14 @@ var controlBar = {
 			}
 			var relativeX = event.pageX - totalOffset;
 			var clickPercent = relativeX / timeline.offsetWidth;
-			var timeStamp = documentary.popcorn.duration() * clickPercent;
+			var timeStamp = documentary.popcorn.duration() * clickPercent;22
 			documentary.popcorn.currentTime(timeStamp);
+			// find scene
+			var currentScene = documentary.currentScene();
+			if(currentScene && currentScene.video){
+				var offsetTime = timeStamp - currentScene.time;
+				currentScene.video.currentTime = offsetTime;
+			}
 		});
 		this.mute = document.getElementById('mute');
 		this.mute.addEventListener('click', function (){
@@ -112,7 +128,7 @@ var controlBar = {
 		sceneElement.setAttribute('class', 'line-scene');
 		sceneElement.style.left = ''+relativeWidth+'px';
 		var titleSpan = document.createElement('span');
-		titleSpan.innerHTML = sceneJson.year + ':<br>' + sceneJson.title;
+		titleSpan.innerHTML = (sceneJson.year? (sceneJson.year + ':<br>'): '') + sceneJson.title;
 		sceneElement.appendChild(titleSpan);
 		var nodeImg = document.createElement('img');
 		nodeImg.src = 'images/layout/sceneNode.png';

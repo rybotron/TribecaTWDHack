@@ -1,19 +1,11 @@
-/* The Resources Library contains an ordered list of chapters.
- */
 var hexSize = 2500;
 var resourceLibrary = {
 	tourDuration: 155, // Length of documentary, in seconds.
 	scenes: [
-		// Example Scene:
-		//     {coords: [r, theta], pieces: [ ... ]},
-		{coords: [hexSize,0], duration: 40, time: 2, year: '19NN', title: 'Introduction', pieces: [
-			// Example set piece:
-			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
+		{coords: [hexSize,0], duration: 40, time: 2, title: 'Introduction', pieces: [
             {type: 'video', source: {mp4: 'video/intro.mp4'}, coords: [ 0,  0,  100 ], dimentions: [960, 540]},
 		]},
 		{coords: [hexSize,60], duration: 10, time: 43, year: '1950', title: 'Tent Camp', audio: {ogg: 'audio/music1.ogg', mpeg: 'audio/music1.mp3'}, pieces: [
-			// Example set piece:
-			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['India\'s magicians, acrobats, and puppeteers leave the rural villages for New Delhi.', 
 			'They set up a tent camp called \"The Kathputli Colony.\"'], coords: [  -200,   300, -200]},
@@ -23,7 +15,6 @@ var resourceLibrary = {
 			{type: 'image', source: 'images/scene1/compressed/tents2.png', coords: [  450,   -75,  1000], dimentions: [1974, 758]},
 		]},
 		{coords: [hexSize,120], duration: 50, time: 56, year: '1964', title: 'Artists\' Village', audio: {ogg: 'audio/music2.ogg', mpeg: 'audio/music2.mp3'}, pieces: [
-			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1964'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['They petition the government to turn the Kathputli Colony into an artists\' village.',
 			'They call their dream village Anangdram: \"The Joy Village.\"'], coords: [  -100,   300, -200]},
@@ -34,18 +25,14 @@ var resourceLibrary = {
 			{type: 'video', source: {mp4: 'video/bbc.mp4'}, coords: [ -100,  -100,  -250 ], dimentions: [960, 540]}
 		]},
 		{coords: [hexSize,180], duration: 15, time: 109, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
-			// Example set piece:
-			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['2011'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['The government never gave the artists the rights to the land.',
-			'It has become a slum.'], coords: [  0,   0, -20]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0,  10], dimentions: [1000*2, 512*2]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0,  200], dimentions: [1000*2, 512*2]},
-			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  700], dimentions: [1000*2, 512*2]}
+			'It has become a slum.'], coords: [  0,   0, -200]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum01.png', coords: [  0,   0,  -1300], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum02.png', coords: [  0,   0,  -1100], dimentions: [1000, 512]},
+			{type: 'image', source: 'images/compressed/TWD_plxD-slum03.png', coords: [  0,   0,  -700], dimentions: [1000, 512]}
 		]},
 		{coords: [hexSize,240], duration: 15, time: 127, year: '2011', title: 'Slum', audio: {ogg: 'audio/music3.ogg', mpeg: 'audio/music3.mp3'}, pieces: [
-			// Example set piece:
-			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['1950'], coords: [  -1000, -350, -20]},
 			{type: 'image', source: 'images/scene3/compressed/puran.png', coords: [  -700,   0,  -300], dimentions: [1222, 1189]},
 			{type: 'image', source: 'images/scene3/compressed/headstandboy.png', coords: [  -400,   -300,  -200], dimentions: [1000, 667]},
@@ -54,8 +41,6 @@ var resourceLibrary = {
 			{type: 'video', source: {mp4: 'video/firebreather.mp4'}, coords: [ -300,  200,  -240 ], dimentions: [960, 540]}
 		]},
 		{coords: [hexSize,300], duration: 10, time: 145, year: '2014', title: 'Skyscraper', audio: {ogg: 'audio/music4.ogg', mpeg: 'audio/music4.mp3'}, pieces: [
-			// Example set piece:
-			//     {type: 'image or video', source: 'a uri, or {webm: 'a uri', etc}', coords: [x, y, z], dimentions: [width, height]}
 			{type: 'date', text: ['2014'], coords: [  -1000, -350, -20]},
 			{type: 'text', text: ['The government announces the artists\' land has been sold to a real-estate developer.',
 			'They plan to build New Delhi\'s first skyscraper on the Kathputli land.'], coords: [  -500,   0,  -200]},
