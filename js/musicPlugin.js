@@ -65,9 +65,10 @@ var audioController = {
 	setup: function (){
 		this.mainAudio.audioElement = document.getElementById('audio1');
 		this.crossFade.audioElement = document.getElementById('audio2');
+		this.mainAudio.audioElement.volume = 0.15;
+		this.crossFade.audioElement.volume = 0.15;
 	},
 	playAudio: function (sources){
-		return;
 		var mpeg;
 		var ogg;
 		if(sources){
