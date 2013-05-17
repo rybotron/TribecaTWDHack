@@ -18,6 +18,10 @@ var controlBar = {
 		});
 		documentary.popcorn.on('play', function (event){
 			controlBar.play.src = 'images/layout/pause.png';
+			var currentScene = documentary.currentScene()
+			if(currentScene && currentScene.video){
+				currentScene.video.play();
+			}
 		})
 		documentary.popcorn.on('pause', function (event){
 			controlBar.play.src = 'images/layout/play.png';
@@ -37,17 +41,10 @@ var controlBar = {
 			}
 			var relativeX = event.pageX - totalOffset;
 			var clickPercent = relativeX / timeline.offsetWidth;
-			var timeStamp = documentary.popcorn.duration() * clickPercent;
+			var timeStamp = documentary.popcorn.duration() * clickPercent;22
 			documentary.popcorn.currentTime(timeStamp);
 			// find scene
-			var currentScene;
-			for(var sceneIndex = 0; sceneIndex < resourceLibrary.scenes.length; sceneIndex++){
-				var indexedScene = resourceLibrary.scenes[sceneIndex];
-				if(indexedScene.duration && indexedScene.time < timeStamp && timeStamp < indexedScene.time+indexedScene.duration){
-					currentScene = indexedScene;
-					break;
-				}
-			}
+			var currentScene = documentary.currentScene();
 			if(currentScene && currentScene.video){
 				var offsetTime = timeStamp - currentScene.time;
 				currentScene.video.currentTime = offsetTime;
