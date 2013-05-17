@@ -8,6 +8,9 @@ a:link{
 	text-decoration:  none;
 	color: white;
 }
+a:visited{
+	color: white;
+}
 #header{
 	width: 100%;
 	position: absolute;
