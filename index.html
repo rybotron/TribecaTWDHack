@@ -102,6 +102,32 @@
 				height: 100%;
 			}
 		</style>
+        <script type="text/javascript">
+            // Wait for the page to load first
+            window.onload = function()
+            {
+                var takeAction = document.getElementById("take-action");
+                takeAction.onclick = function()
+                {
+                    threeD.camCTRL.position.y =3000;
+                    threeD.camCTRL.position.z=-7000;
+                    threeD.camCTRL.rotation.y=180 * (Math.PI / 180 );
+                    threeD.camera.rotation.x = -30 * (Math.PI/180);
+                    threeD.ZOOM = 1;
+                    return false;
+                }
+                var share = document.getElementById("share");
+                share.onclick = function()
+                {
+                    threeD.camCTRL.position.y =0;
+                    threeD.camCTRL.position.z=-1;
+                    threeD.camera.rotation.x = 0 * (Math.PI/180);
+                    threeD.camCTRL.rotation.y = 0;
+                    threeD.ZOOM = 0;
+                    return false;
+                }
+            }
+        </script>
 	</head>
 
 	<body>
@@ -109,8 +135,8 @@
 	<header id="header">
 		<a id="home-button">TWD</a>
 		<div id="social-mute">
-			<a id="take-action" href="https://google.com" target="example">Take Action</a>
-			<a id="share" href="https://google.com" target="example">Share</a>
+			<a id="take-action" href="#">Take Action</a>
+			<a id="share" href="#">Share</a>
 			<img id="mute" src="images/layout/speaker.png" />
 		</div>
 	</header>
