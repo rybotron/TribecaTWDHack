@@ -14,6 +14,7 @@ var documentary = {
 		});*/
 		this.popcorn.on('timeupdate', function (event){
 			controlBar.updateTime(this.currentTime());
+			audioController.time(this.currentTime());
 		});
 		var container = document.getElementById(domConfig.containerId);
 		controlBar.setup();

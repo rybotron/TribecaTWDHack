@@ -1,4 +1,51 @@
 var audioController = {
+	elements: [],
+	intervals: [
+		{start: 0, end: 0},
+		{start: 0, end: 0},
+		{start: 0, end: 0},
+		{start: 0, end: 0},
+	],
+	currentIndex: undefined,
+	setup: function (){
+		this.elements[0] = getElementById('audio1');
+		this.elements[1] = getElementById('audio2');
+		this.elements[2] = getElementById('audio3');
+		this.elements[3] = getElementById('audio4');
+		this.elements[0].volume = 0.15;
+		this.elements[1].volume = 0.15;
+		this.elements[2].volume = 0.15;
+		this.elements[3].volume = 0.15;
+	},
+	time: function (timeStamp){
+		var oldElement;
+		var currentElement;
+		if(this.currentIndex){
+			var currentInterval = this.intervals[this.currentIndex];
+			if(currentInterval.start < timeStamp && currentInterval.end > timeStamp){
+				currentElement = this.elements[currentInterval];
+			} else{
+				oldElement = this.elements[this.currentIndex]
+			}
+		}
+		if(!currentElement){
+			for(var intervalIndex = 0; intervalIndex < this.intervals.length; intervalIndex++){
+				var indexedInterval = this.intervals[intervalIndex];
+				if(indexedInterval.start < timeStamp && indexedInterval.end > timeStamp){
+					currentElement = this.elements[intervalIndex];
+				}
+			}
+		}
+		if(currentElement){
+			currentElement.play()
+		}
+		if(oldElement){
+			oldElement.pause()
+		}
+	}
+}
+
+/*var audioController = {
 	mainAudio: {
 		which: 1,
 		ogg: undefined,
@@ -63,7 +110,7 @@ var error_object_is_not_a_function = function (Popcorn) {
 		/*
 		We don't even need to specify start/frame/end/_teardown methods here,
 		since base.animate takes care of all that for us.
-		*/
+		
 		return {
 			start: function (event){
 				var timeStamp = documentary.popcorn.currentTime();
@@ -74,7 +121,7 @@ var error_object_is_not_a_function = function (Popcorn) {
 					setTimeout(function (){
 						sceneJson.video.play();
 					}, transitionTime);
-				}*/
+				}
 			},
 			end: function (event){
 			},
@@ -90,4 +137,4 @@ var error_object_is_not_a_function = function (Popcorn) {
 		}
 	});
 }
-error_object_is_not_a_function(Popcorn);
+error_object_is_not_a_function(Popcorn);*/
