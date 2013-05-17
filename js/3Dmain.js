@@ -126,7 +126,7 @@ var threeD = {
 		// $contenttarget.append( distance );
 
 
-		var sideScale = 10;
+		var sideScale = 7;
 		var sideSize = 512;
 
 		var sides = [
@@ -176,7 +176,7 @@ var threeD = {
 			var side = sides[ i ];
 
 			var element = document.createElement( 'img' );
-			// element.width = 1026; // 2 pixels extra to close the gap.
+			element.width = 1024; // 2 pixels extra to close the gap.
 			element.src = side.url;
 			element.setAttribute('class', 'threeDimages');
 
@@ -203,7 +203,7 @@ var threeD = {
 		this.scene.add(skybox);
 
         animations.horsie();
-        // animations.firebreather();
+        animations.firebreather();
 
 	
 		this.renderer = new THREE.CSS3DRenderer();
