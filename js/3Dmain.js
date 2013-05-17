@@ -127,7 +127,7 @@ var threeD = {
 
 
 		var sideScale = 10;
-		var sideSize = 536.7;
+		var sideSize = 512;
 
 		var sides = [
 			{
